@@ -21,3 +21,23 @@ class RealmContact: Object
         return "id"
     }
 }
+
+extension RealmContact {
+    
+    var fullname: String {
+        let fullname =  name + " " + lastname
+        return fullname.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
+    
+    var initials: String {
+        let nameComponents = fullname.split(separator: " ").map { return $0.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) }
+        guard
+            nameComponents.count > 1,
+            let firstComponent = nameComponents.first,
+            let lastComponent = nameComponents.last
+            else {
+                return String(name.uppercased().prefix(2))
+        }
+        return String(firstComponent.prefix(1) + lastComponent.prefix(1))
+    }
+}

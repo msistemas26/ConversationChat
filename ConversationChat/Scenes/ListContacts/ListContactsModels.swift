@@ -32,8 +32,11 @@ enum ListContacts
                 var id: Int
                 var name: String
                 var lastname: String
+                var fullname: String
+                var initials: String
                 var phoneNumber: String
                 var avatarUrl: String
+                var description: String
             }
             var displayedContacts: [DisplayedContact]
         }

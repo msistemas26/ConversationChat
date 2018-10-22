@@ -35,6 +35,12 @@
 		E5E4AF27217BB5A0003A8E1D /* ListContactsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */; };
 		E5E4AF28217BB5A0003A8E1D /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */; };
 		E5E4AF29217BB5A0003A8E1D /* ListContactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */; };
+		FE96647B217E1C61005B505D /* ListContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE966479217E1C61005B505D /* ListContactsCell.swift */; };
+		FE96647C217E1C61005B505D /* ListContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE96647A217E1C61005B505D /* ListContactsCell.xib */; };
+		FE966482217E1C92005B505D /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE966480217E1C90005B505D /* Avatar.swift */; };
+		FE966483217E1C92005B505D /* Avatar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE966481217E1C92005B505D /* Avatar.xib */; };
+		FE966486217E1DF6005B505D /* ListChatRoomsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE966484217E1DF6005B505D /* ListChatRoomsCell.swift */; };
+		FE966487217E1DF6005B505D /* ListChatRoomsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE966485217E1DF6005B505D /* ListChatRoomsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +108,12 @@
 		E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsModels.swift; sourceTree = "<group>"; };
 		E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewController.swift; sourceTree = "<group>"; };
 		E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsInteractor.swift; sourceTree = "<group>"; };
+		FE966479217E1C61005B505D /* ListContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContactsCell.swift; sourceTree = "<group>"; };
+		FE96647A217E1C61005B505D /* ListContactsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListContactsCell.xib; sourceTree = "<group>"; };
+		FE966480217E1C90005B505D /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		FE966481217E1C92005B505D /* Avatar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Avatar.xib; sourceTree = "<group>"; };
+		FE966484217E1DF6005B505D /* ListChatRoomsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListChatRoomsCell.swift; sourceTree = "<group>"; };
+		FE966485217E1DF6005B505D /* ListChatRoomsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListChatRoomsCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +202,7 @@
 		E5E4AEE92173EEA3003A8E1D /* ListChatRooms */ = {
 			isa = PBXGroup;
 			children = (
-				E5E4AEEC2173EEBE003A8E1D /* Cell */,
+				FE966473217E1C05005B505D /* Cell */,
 				E5E4AEFE2173F29E003A8E1D /* ListChatRoomsViewController.swift */,
 				E5E4AF002173F2D0003A8E1D /* ListChatRoomsInteractor.swift */,
 				E5E4AF022173F2DA003A8E1D /* ListChatRoomsPresenter.swift */,
@@ -208,16 +220,10 @@
 			path = ShowChatRoom;
 			sourceTree = "<group>";
 		};
-		E5E4AEEC2173EEBE003A8E1D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		E5E4AEFD2173F186003A8E1D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FE96647D217E1C6D005B505D /* Common */,
 				E5E4AF1D217BB57A003A8E1D /* ListContacts */,
 				E5E4AEE92173EEA3003A8E1D /* ListChatRooms */,
 				E5E4AEEA2173EEAB003A8E1D /* ShowChatRoom */,
@@ -255,22 +261,50 @@
 		E5E4AF1D217BB57A003A8E1D /* ListContacts */ = {
 			isa = PBXGroup;
 			children = (
-				E5E4AF2A217E0C49003A8E1D /* Cell */,
-				E5E4AF1E217BB5A0003A8E1D /* ListContactsPresenter.swift */,
-				E5E4AF1F217BB5A0003A8E1D /* ListContactsWorker.swift */,
-				E5E4AF20217BB5A0003A8E1D /* ListContactsRouter.swift */,
-				E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */,
+				FE966478217E1C37005B505D /* Cell */,
 				E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */,
 				E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */,
+				E5E4AF1E217BB5A0003A8E1D /* ListContactsPresenter.swift */,
+				E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */,
+				E5E4AF1F217BB5A0003A8E1D /* ListContactsWorker.swift */,
+				E5E4AF20217BB5A0003A8E1D /* ListContactsRouter.swift */,
 			);
 			path = ListContacts;
 			sourceTree = "<group>";
 		};
-		E5E4AF2A217E0C49003A8E1D /* Cell */ = {
+		FE966473217E1C05005B505D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				FE966484217E1DF6005B505D /* ListChatRoomsCell.swift */,
+				FE966485217E1DF6005B505D /* ListChatRoomsCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		FE966478217E1C37005B505D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FE966479217E1C61005B505D /* ListContactsCell.swift */,
+				FE96647A217E1C61005B505D /* ListContactsCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FE96647D217E1C6D005B505D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FE96647F217E1C80005B505D /* Avatar */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FE96647F217E1C80005B505D /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				FE966480217E1C90005B505D /* Avatar.swift */,
+				FE966481217E1C92005B505D /* Avatar.xib */,
+			);
+			path = Avatar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,7 +414,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E4AEC62173EDDA003A8E1D /* LaunchScreen.storyboard in Resources */,
+				FE96647C217E1C61005B505D /* ListContactsCell.xib in Resources */,
+				FE966483217E1C92005B505D /* Avatar.xib in Resources */,
 				E5E4AEC32173EDDA003A8E1D /* Assets.xcassets in Resources */,
+				FE966487217E1DF6005B505D /* ListChatRoomsCell.xib in Resources */,
 				E5E4AEC12173EDD6003A8E1D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,14 +469,17 @@
 				E5E4AF072173F464003A8E1D /* ChatRoomsWorker.swift in Sources */,
 				E5E4AF122173FDAA003A8E1D /* RealmContactsInChatRoom.swift in Sources */,
 				E5E4AF0A2173FA0C003A8E1D /* ChatWorker.swift in Sources */,
+				FE966482217E1C92005B505D /* Avatar.swift in Sources */,
 				E5E4AF27217BB5A0003A8E1D /* ListContactsModels.swift in Sources */,
 				E5E4AEBE2173EDD6003A8E1D /* ViewController.swift in Sources */,
+				FE96647B217E1C61005B505D /* ListContactsCell.swift in Sources */,
 				E5E4AF012173F2D0003A8E1D /* ListChatRoomsInteractor.swift in Sources */,
 				E5E4AEBC2173EDD6003A8E1D /* AppDelegate.swift in Sources */,
 				E5E4AEFF2173F29E003A8E1D /* ListChatRoomsViewController.swift in Sources */,
 				E5E4AF25217BB5A0003A8E1D /* ListContactsWorker.swift in Sources */,
 				E5E4AF102173FD2E003A8E1D /* RealmContact.swift in Sources */,
 				E5E4AF24217BB5A0003A8E1D /* ListContactsPresenter.swift in Sources */,
+				FE966486217E1DF6005B505D /* ListChatRoomsCell.swift in Sources */,
 				E5E4AF052173F2E5003A8E1D /* ListChatRoomsRouter.swift in Sources */,
 				E5E4AF142173FF27003A8E1D /* RealmChatRoomConversation.swift in Sources */,
 				E5E4AF26217BB5A0003A8E1D /* ListContactsRouter.swift in Sources */,
