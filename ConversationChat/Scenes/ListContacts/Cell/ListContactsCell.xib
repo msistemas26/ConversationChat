@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListContactsCell" rowHeight="51" id="KGk-i7-Jjw" customClass="ListContactsCell" customModule="ConversationChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="51"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="407" height="50.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tny-UW-gw0">
+                        <rect key="frame" x="20" y="5" width="40" height="40"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="iLg-0t-ZOt"/>
+                            <constraint firstAttribute="width" constant="40" id="sVN-R6-EHl"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ilt-qV-eva">
+                        <rect key="frame" x="70" y="6.5" width="317" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVf-HD-fu2">
+                        <rect key="frame" x="70" y="24.5" width="317" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Ilt-qV-eva" secondAttribute="trailing" constant="20" id="9uc-e0-fAq"/>
+                    <constraint firstItem="lVf-HD-fu2" firstAttribute="centerY" secondItem="tny-UW-gw0" secondAttribute="centerY" constant="8" id="NSY-LI-fym"/>
+                    <constraint firstItem="lVf-HD-fu2" firstAttribute="leading" secondItem="Ilt-qV-eva" secondAttribute="leading" id="ZXx-VD-bh4"/>
+                    <constraint firstAttribute="trailing" secondItem="lVf-HD-fu2" secondAttribute="trailing" constant="20" id="ZqE-2L-3H7"/>
+                    <constraint firstItem="tny-UW-gw0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cYf-bZ-c6F"/>
+                    <constraint firstItem="Ilt-qV-eva" firstAttribute="centerY" secondItem="tny-UW-gw0" secondAttribute="centerY" constant="-8" id="ikc-b6-k5y"/>
+                    <constraint firstItem="Ilt-qV-eva" firstAttribute="leading" secondItem="tny-UW-gw0" secondAttribute="trailing" constant="10" id="te2-Sy-oa4"/>
+                    <constraint firstItem="tny-UW-gw0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="uuT-zX-NvF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="avatarView" destination="tny-UW-gw0" id="9sm-W3-flJ"/>
+                <outlet property="desc" destination="lVf-HD-fu2" id="2KD-UH-V0m"/>
+                <outlet property="title" destination="Ilt-qV-eva" id="JGe-U5-CpT"/>
+                <outlet property="titleCenterConstraint" destination="ikc-b6-k5y" id="8S1-i6-V5L"/>
+            </connections>
+            <point key="canvasLocation" x="92.5" y="-69.5"/>
+        </tableViewCell>
+    </objects>
+</document>
