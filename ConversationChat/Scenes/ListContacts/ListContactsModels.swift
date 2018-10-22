@@ -36,7 +36,7 @@ enum ListContacts
                 var initials: String
                 var phoneNumber: String
                 var avatarUrl: String
-                var description: String
+                var description: String?
             }
             var displayedContacts: [DisplayedContact]
         }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class Avatar: UIView {
 
@@ -19,31 +21,44 @@ class Avatar: UIView {
         return view
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func setup(){
+        self.initials.text = ""
+        self.imageView.backgroundColor = UIColor.lightGray
         self.frame = (self.superview?.frame)!
         self.frame.origin.y = 0
         self.frame.origin.x = 0
-        
-        self.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleRightMargin]
-        self.layoutIfNeeded()
-        self.layer.cornerRadius = self.frame.width / 2
-        self.layer.masksToBounds = true;
+        self.imageView.layer.cornerRadius = self.frame.width / 2
+        self.imageView.layer.masksToBounds = true
     }
     
-    func setup(initials: String) {
+    func setImage(_ image: UIImage) {
         setup()
-        self.imageView.backgroundColor = UIColor.lightGray
-        self.initials.text = initials
-        //showData(viewModel: viewModel)
+        imageView.image = image
     }
     
-    private func showData(viewModel: ListContacts.FetchContacts.ViewModel.DisplayedContact) {
-        //title.text = viewModel.name
+    func setImage(withUrl url: String) {
+        setup()
+        
+        let imageFilter = AspectScaledToFillSizeFilter(size: imageView.frame.size)
+        
+        guard let url = URL(string: url) else {
+            return
+        }
+        
+        imageView.af_setImage(withURL: url, placeholderImage: nil, filter: imageFilter, progress: nil, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (response) in
+            let imageFilter = AspectScaledToFillSizeFilter(size: self.imageView.frame.size)
+            self.imageView.backgroundColor = UIColor(patternImage:imageFilter.filter(response.result.value!))
+        })
     }
-
+    
+    func setInitials(_ initials: String) {
+        setup()
+        self.initials.text = initials
+    }
+    
+    func setOnlineIndicator(_ iOnline: Bool) {
+        self.onlineIndicatorImageView.layer.cornerRadius = self.onlineIndicatorImageView.frame.width / 2
+        self.onlineIndicatorImageView.layer.masksToBounds = true
+        onlineIndicatorImageView.backgroundColor = iOnline ? UIColor.green : UIColor.gray
+    }
 }

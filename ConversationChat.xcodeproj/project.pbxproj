@@ -35,6 +35,10 @@
 		E5E4AF27217BB5A0003A8E1D /* ListContactsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */; };
 		E5E4AF28217BB5A0003A8E1D /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */; };
 		E5E4AF29217BB5A0003A8E1D /* ListContactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */; };
+		FE507AE7217E877B00FE8920 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE5217E877A00FE8920 /* Alamofire.framework */; };
+		FE507AE8217E877B00FE8920 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE5217E877A00FE8920 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FE507AE9217E877B00FE8920 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE6217E877A00FE8920 /* AlamofireImage.framework */; };
+		FE507AEA217E877B00FE8920 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE6217E877A00FE8920 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE96647B217E1C61005B505D /* ListContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE966479217E1C61005B505D /* ListContactsCell.swift */; };
 		FE96647C217E1C61005B505D /* ListContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE96647A217E1C61005B505D /* ListContactsCell.xib */; };
 		FE966482217E1C92005B505D /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE966480217E1C90005B505D /* Avatar.swift */; };
@@ -68,7 +72,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E5E4AF1B21740697003A8E1D /* RealmSwift.framework in Embed Frameworks */,
+				FE507AE8217E877B00FE8920 /* Alamofire.framework in Embed Frameworks */,
 				E5E4AF1921740697003A8E1D /* Realm.framework in Embed Frameworks */,
+				FE507AEA217E877B00FE8920 /* AlamofireImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +114,8 @@
 		E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsModels.swift; sourceTree = "<group>"; };
 		E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewController.swift; sourceTree = "<group>"; };
 		E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsInteractor.swift; sourceTree = "<group>"; };
+		FE507AE5217E877A00FE8920 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		FE507AE6217E877A00FE8920 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		FE966479217E1C61005B505D /* ListContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContactsCell.swift; sourceTree = "<group>"; };
 		FE96647A217E1C61005B505D /* ListContactsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListContactsCell.xib; sourceTree = "<group>"; };
 		FE966480217E1C90005B505D /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
@@ -122,7 +130,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E4AF1A21740697003A8E1D /* RealmSwift.framework in Frameworks */,
+				FE507AE7217E877B00FE8920 /* Alamofire.framework in Frameworks */,
 				E5E4AF1821740697003A8E1D /* Realm.framework in Frameworks */,
+				FE507AE9217E877B00FE8920 /* AlamofireImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +156,8 @@
 		E5E4AEAF2173EDD6003A8E1D = {
 			isa = PBXGroup;
 			children = (
+				FE507AE5217E877A00FE8920 /* Alamofire.framework */,
+				FE507AE6217E877A00FE8920 /* AlamofireImage.framework */,
 				E5E4AF1621740696003A8E1D /* Realm.framework */,
 				E5E4AF1721740696003A8E1D /* RealmSwift.framework */,
 				E5E4AEBA2173EDD6003A8E1D /* ConversationChat */,
@@ -447,6 +459,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 			);
 			outputPaths = (
 			);
