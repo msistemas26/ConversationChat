@@ -14,6 +14,27 @@
 		E5E4AEC62173EDDA003A8E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E4AEC42173EDDA003A8E1D /* LaunchScreen.storyboard */; };
 		E5E4AED12173EDDA003A8E1D /* ConversationChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AED02173EDDA003A8E1D /* ConversationChatTests.swift */; };
 		E5E4AEDC2173EDDA003A8E1D /* ConversationChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AEDB2173EDDA003A8E1D /* ConversationChatUITests.swift */; };
+		E5E4AEFC2173F06F003A8E1D /* ListChatRoomsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AEFB2173F06F003A8E1D /* ListChatRoomsModels.swift */; };
+		E5E4AEFF2173F29E003A8E1D /* ListChatRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AEFE2173F29E003A8E1D /* ListChatRoomsViewController.swift */; };
+		E5E4AF012173F2D0003A8E1D /* ListChatRoomsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF002173F2D0003A8E1D /* ListChatRoomsInteractor.swift */; };
+		E5E4AF032173F2DA003A8E1D /* ListChatRoomsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF022173F2DA003A8E1D /* ListChatRoomsPresenter.swift */; };
+		E5E4AF052173F2E5003A8E1D /* ListChatRoomsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF042173F2E5003A8E1D /* ListChatRoomsRouter.swift */; };
+		E5E4AF072173F464003A8E1D /* ChatRoomsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF062173F464003A8E1D /* ChatRoomsWorker.swift */; };
+		E5E4AF0A2173FA0C003A8E1D /* ChatWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF092173FA0C003A8E1D /* ChatWorker.swift */; };
+		E5E4AF0E2173FB93003A8E1D /* RealmChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF0D2173FB93003A8E1D /* RealmChatRoom.swift */; };
+		E5E4AF102173FD2E003A8E1D /* RealmContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF0F2173FD2E003A8E1D /* RealmContact.swift */; };
+		E5E4AF122173FDAA003A8E1D /* RealmContactsInChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF112173FDAA003A8E1D /* RealmContactsInChatRoom.swift */; };
+		E5E4AF142173FF27003A8E1D /* RealmChatRoomConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF132173FF27003A8E1D /* RealmChatRoomConversation.swift */; };
+		E5E4AF1821740697003A8E1D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E4AF1621740696003A8E1D /* Realm.framework */; };
+		E5E4AF1921740697003A8E1D /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5E4AF1621740696003A8E1D /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5E4AF1A21740697003A8E1D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E4AF1721740696003A8E1D /* RealmSwift.framework */; };
+		E5E4AF1B21740697003A8E1D /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5E4AF1721740696003A8E1D /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5E4AF24217BB5A0003A8E1D /* ListContactsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF1E217BB5A0003A8E1D /* ListContactsPresenter.swift */; };
+		E5E4AF25217BB5A0003A8E1D /* ListContactsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF1F217BB5A0003A8E1D /* ListContactsWorker.swift */; };
+		E5E4AF26217BB5A0003A8E1D /* ListContactsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF20217BB5A0003A8E1D /* ListContactsRouter.swift */; };
+		E5E4AF27217BB5A0003A8E1D /* ListContactsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */; };
+		E5E4AF28217BB5A0003A8E1D /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */; };
+		E5E4AF29217BB5A0003A8E1D /* ListContactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +54,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E5E4AF1C21740697003A8E1D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E5E4AF1B21740697003A8E1D /* RealmSwift.framework in Embed Frameworks */,
+				E5E4AF1921740697003A8E1D /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E5E4AEB82173EDD6003A8E1D /* ConversationChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConversationChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E4AEBB2173EDD6003A8E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +83,25 @@
 		E5E4AED72173EDDA003A8E1D /* ConversationChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConversationChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E4AEDB2173EDDA003A8E1D /* ConversationChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationChatUITests.swift; sourceTree = "<group>"; };
 		E5E4AEDD2173EDDA003A8E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5E4AEFB2173F06F003A8E1D /* ListChatRoomsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatRoomsModels.swift; sourceTree = "<group>"; };
+		E5E4AEFE2173F29E003A8E1D /* ListChatRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatRoomsViewController.swift; sourceTree = "<group>"; };
+		E5E4AF002173F2D0003A8E1D /* ListChatRoomsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatRoomsInteractor.swift; sourceTree = "<group>"; };
+		E5E4AF022173F2DA003A8E1D /* ListChatRoomsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatRoomsPresenter.swift; sourceTree = "<group>"; };
+		E5E4AF042173F2E5003A8E1D /* ListChatRoomsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatRoomsRouter.swift; sourceTree = "<group>"; };
+		E5E4AF062173F464003A8E1D /* ChatRoomsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsWorker.swift; sourceTree = "<group>"; };
+		E5E4AF092173FA0C003A8E1D /* ChatWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWorker.swift; sourceTree = "<group>"; };
+		E5E4AF0D2173FB93003A8E1D /* RealmChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChatRoom.swift; sourceTree = "<group>"; };
+		E5E4AF0F2173FD2E003A8E1D /* RealmContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmContact.swift; sourceTree = "<group>"; };
+		E5E4AF112173FDAA003A8E1D /* RealmContactsInChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmContactsInChatRoom.swift; sourceTree = "<group>"; };
+		E5E4AF132173FF27003A8E1D /* RealmChatRoomConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChatRoomConversation.swift; sourceTree = "<group>"; };
+		E5E4AF1621740696003A8E1D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		E5E4AF1721740696003A8E1D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		E5E4AF1E217BB5A0003A8E1D /* ListContactsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsPresenter.swift; sourceTree = "<group>"; };
+		E5E4AF1F217BB5A0003A8E1D /* ListContactsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsWorker.swift; sourceTree = "<group>"; };
+		E5E4AF20217BB5A0003A8E1D /* ListContactsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsRouter.swift; sourceTree = "<group>"; };
+		E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsModels.swift; sourceTree = "<group>"; };
+		E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewController.swift; sourceTree = "<group>"; };
+		E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E4AF1A21740697003A8E1D /* RealmSwift.framework in Frameworks */,
+				E5E4AF1821740697003A8E1D /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +134,8 @@
 		E5E4AEAF2173EDD6003A8E1D = {
 			isa = PBXGroup;
 			children = (
+				E5E4AF1621740696003A8E1D /* Realm.framework */,
+				E5E4AF1721740696003A8E1D /* RealmSwift.framework */,
 				E5E4AEBA2173EDD6003A8E1D /* ConversationChat */,
 				E5E4AECF2173EDDA003A8E1D /* ConversationChatTests */,
 				E5E4AEDA2173EDDA003A8E1D /* ConversationChatUITests */,
@@ -97,6 +156,9 @@
 		E5E4AEBA2173EDD6003A8E1D /* ConversationChat */ = {
 			isa = PBXGroup;
 			children = (
+				E5E4AF0B2173FB67003A8E1D /* Models */,
+				E5E4AF082173F9ED003A8E1D /* Workers */,
+				E5E4AEFD2173F186003A8E1D /* Scenes */,
 				E5E4AEBB2173EDD6003A8E1D /* AppDelegate.swift */,
 				E5E4AEBD2173EDD6003A8E1D /* ViewController.swift */,
 				E5E4AEBF2173EDD6003A8E1D /* Main.storyboard */,
@@ -125,6 +187,92 @@
 			path = ConversationChatUITests;
 			sourceTree = "<group>";
 		};
+		E5E4AEE92173EEA3003A8E1D /* ListChatRooms */ = {
+			isa = PBXGroup;
+			children = (
+				E5E4AEEC2173EEBE003A8E1D /* Cell */,
+				E5E4AEFE2173F29E003A8E1D /* ListChatRoomsViewController.swift */,
+				E5E4AF002173F2D0003A8E1D /* ListChatRoomsInteractor.swift */,
+				E5E4AF022173F2DA003A8E1D /* ListChatRoomsPresenter.swift */,
+				E5E4AEFB2173F06F003A8E1D /* ListChatRoomsModels.swift */,
+				E5E4AF042173F2E5003A8E1D /* ListChatRoomsRouter.swift */,
+				E5E4AF062173F464003A8E1D /* ChatRoomsWorker.swift */,
+			);
+			path = ListChatRooms;
+			sourceTree = "<group>";
+		};
+		E5E4AEEA2173EEAB003A8E1D /* ShowChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShowChatRoom;
+			sourceTree = "<group>";
+		};
+		E5E4AEEC2173EEBE003A8E1D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E5E4AEFD2173F186003A8E1D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E5E4AF1D217BB57A003A8E1D /* ListContacts */,
+				E5E4AEE92173EEA3003A8E1D /* ListChatRooms */,
+				E5E4AEEA2173EEAB003A8E1D /* ShowChatRoom */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E5E4AF082173F9ED003A8E1D /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				E5E4AF092173FA0C003A8E1D /* ChatWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		E5E4AF0B2173FB67003A8E1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5E4AF0C2173FB6E003A8E1D /* Realm */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5E4AF0C2173FB6E003A8E1D /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				E5E4AF0D2173FB93003A8E1D /* RealmChatRoom.swift */,
+				E5E4AF0F2173FD2E003A8E1D /* RealmContact.swift */,
+				E5E4AF112173FDAA003A8E1D /* RealmContactsInChatRoom.swift */,
+				E5E4AF132173FF27003A8E1D /* RealmChatRoomConversation.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		E5E4AF1D217BB57A003A8E1D /* ListContacts */ = {
+			isa = PBXGroup;
+			children = (
+				E5E4AF2A217E0C49003A8E1D /* Cell */,
+				E5E4AF1E217BB5A0003A8E1D /* ListContactsPresenter.swift */,
+				E5E4AF1F217BB5A0003A8E1D /* ListContactsWorker.swift */,
+				E5E4AF20217BB5A0003A8E1D /* ListContactsRouter.swift */,
+				E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */,
+				E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */,
+				E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */,
+			);
+			path = ListContacts;
+			sourceTree = "<group>";
+		};
+		E5E4AF2A217E0C49003A8E1D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +283,8 @@
 				E5E4AEB42173EDD6003A8E1D /* Sources */,
 				E5E4AEB52173EDD6003A8E1D /* Frameworks */,
 				E5E4AEB62173EDD6003A8E1D /* Resources */,
+				E5E4AF1521740618003A8E1D /* ShellScript */,
+				E5E4AF1C21740697003A8E1D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,13 +401,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E5E4AF1521740618003A8E1D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5E4AEB42173EDD6003A8E1D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E4AF28217BB5A0003A8E1D /* ListContactsViewController.swift in Sources */,
+				E5E4AF0E2173FB93003A8E1D /* RealmChatRoom.swift in Sources */,
+				E5E4AEFC2173F06F003A8E1D /* ListChatRoomsModels.swift in Sources */,
+				E5E4AF29217BB5A0003A8E1D /* ListContactsInteractor.swift in Sources */,
+				E5E4AF032173F2DA003A8E1D /* ListChatRoomsPresenter.swift in Sources */,
+				E5E4AF072173F464003A8E1D /* ChatRoomsWorker.swift in Sources */,
+				E5E4AF122173FDAA003A8E1D /* RealmContactsInChatRoom.swift in Sources */,
+				E5E4AF0A2173FA0C003A8E1D /* ChatWorker.swift in Sources */,
+				E5E4AF27217BB5A0003A8E1D /* ListContactsModels.swift in Sources */,
 				E5E4AEBE2173EDD6003A8E1D /* ViewController.swift in Sources */,
+				E5E4AF012173F2D0003A8E1D /* ListChatRoomsInteractor.swift in Sources */,
 				E5E4AEBC2173EDD6003A8E1D /* AppDelegate.swift in Sources */,
+				E5E4AEFF2173F29E003A8E1D /* ListChatRoomsViewController.swift in Sources */,
+				E5E4AF25217BB5A0003A8E1D /* ListContactsWorker.swift in Sources */,
+				E5E4AF102173FD2E003A8E1D /* RealmContact.swift in Sources */,
+				E5E4AF24217BB5A0003A8E1D /* ListContactsPresenter.swift in Sources */,
+				E5E4AF052173F2E5003A8E1D /* ListChatRoomsRouter.swift in Sources */,
+				E5E4AF142173FF27003A8E1D /* RealmChatRoomConversation.swift in Sources */,
+				E5E4AF26217BB5A0003A8E1D /* ListContactsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +616,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ConversationChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,6 +637,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ConversationChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
