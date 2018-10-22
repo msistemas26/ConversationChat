@@ -36,7 +36,7 @@ class ListContactsCell: UITableViewCell {
             self.avatarView.addSubview(avatar)
             avatar.setInitials(displayedContact.initials)
             //avatar.setImage(UIImage(named: "avatar")!)
-            avatar.setOnlineIndicator(false)
+            avatar.setOnlineIndicator(true)
         }
     }
     
