@@ -34,9 +34,10 @@ class ListContactsCell: UITableViewCell {
         let avatar = Avatar.fromXib()
         if let avatar = avatar {
             self.avatarView.addSubview(avatar)
-            avatar.setInitials(displayedContact.initials)
+            //avatar.setInitials(displayedContact.initials)
             //avatar.setImage(UIImage(named: "avatar")!)
-            avatar.setOnlineIndicator(true)
+            avatar.setImage(withUrl: displayedContact.avatarUrl)
+            avatar.setOnlineIndicator(false)
         }
     }
     

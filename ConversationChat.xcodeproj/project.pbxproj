@@ -39,6 +39,14 @@
 		FE507AE8217E877B00FE8920 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE5217E877A00FE8920 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE507AE9217E877B00FE8920 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE6217E877A00FE8920 /* AlamofireImage.framework */; };
 		FE507AEA217E877B00FE8920 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE6217E877A00FE8920 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FE507AF2217F7F6800FE8920 /* ConversationRoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE507AEC217F7F6800FE8920 /* ConversationRoomPresenter.swift */; };
+		FE507AF3217F7F6800FE8920 /* ConversationRoomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE507AED217F7F6800FE8920 /* ConversationRoomRouter.swift */; };
+		FE507AF4217F7F6800FE8920 /* ConversationRoomModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE507AEE217F7F6800FE8920 /* ConversationRoomModels.swift */; };
+		FE507AF5217F7F6800FE8920 /* ConversationRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE507AEF217F7F6800FE8920 /* ConversationRoomViewController.swift */; };
+		FE507AF6217F7F6800FE8920 /* ConversationRoomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE507AF0217F7F6800FE8920 /* ConversationRoomInteractor.swift */; };
+		FE507AF7217F7F6800FE8920 /* ConversationRoomWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE507AF1217F7F6800FE8920 /* ConversationRoomWorker.swift */; };
+		FE507AFB217F8AF500FE8920 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE507AF9217F8AF500FE8920 /* ChatMessageCell.swift */; };
+		FE507AFC217F8AF500FE8920 /* ChatMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE507AFA217F8AF500FE8920 /* ChatMessageCell.xib */; };
 		FE96647B217E1C61005B505D /* ListContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE966479217E1C61005B505D /* ListContactsCell.swift */; };
 		FE96647C217E1C61005B505D /* ListContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE96647A217E1C61005B505D /* ListContactsCell.xib */; };
 		FE966482217E1C92005B505D /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE966480217E1C90005B505D /* Avatar.swift */; };
@@ -116,6 +124,14 @@
 		E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsInteractor.swift; sourceTree = "<group>"; };
 		FE507AE5217E877A00FE8920 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FE507AE6217E877A00FE8920 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		FE507AEC217F7F6800FE8920 /* ConversationRoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRoomPresenter.swift; sourceTree = "<group>"; };
+		FE507AED217F7F6800FE8920 /* ConversationRoomRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRoomRouter.swift; sourceTree = "<group>"; };
+		FE507AEE217F7F6800FE8920 /* ConversationRoomModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRoomModels.swift; sourceTree = "<group>"; };
+		FE507AEF217F7F6800FE8920 /* ConversationRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRoomViewController.swift; sourceTree = "<group>"; };
+		FE507AF0217F7F6800FE8920 /* ConversationRoomInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRoomInteractor.swift; sourceTree = "<group>"; };
+		FE507AF1217F7F6800FE8920 /* ConversationRoomWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRoomWorker.swift; sourceTree = "<group>"; };
+		FE507AF9217F8AF500FE8920 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		FE507AFA217F8AF500FE8920 /* ChatMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatMessageCell.xib; sourceTree = "<group>"; };
 		FE966479217E1C61005B505D /* ListContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContactsCell.swift; sourceTree = "<group>"; };
 		FE96647A217E1C61005B505D /* ListContactsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListContactsCell.xib; sourceTree = "<group>"; };
 		FE966480217E1C90005B505D /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
@@ -235,6 +251,7 @@
 		E5E4AEFD2173F186003A8E1D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FE507AEB217F7F3900FE8920 /* ConversationRoom */,
 				FE96647D217E1C6D005B505D /* Common */,
 				E5E4AF1D217BB57A003A8E1D /* ListContacts */,
 				E5E4AEE92173EEA3003A8E1D /* ListChatRooms */,
@@ -282,6 +299,29 @@
 				E5E4AF20217BB5A0003A8E1D /* ListContactsRouter.swift */,
 			);
 			path = ListContacts;
+			sourceTree = "<group>";
+		};
+		FE507AEB217F7F3900FE8920 /* ConversationRoom */ = {
+			isa = PBXGroup;
+			children = (
+				FE507AF8217F8AD300FE8920 /* Cell */,
+				FE507AEF217F7F6800FE8920 /* ConversationRoomViewController.swift */,
+				FE507AF0217F7F6800FE8920 /* ConversationRoomInteractor.swift */,
+				FE507AEC217F7F6800FE8920 /* ConversationRoomPresenter.swift */,
+				FE507AED217F7F6800FE8920 /* ConversationRoomRouter.swift */,
+				FE507AEE217F7F6800FE8920 /* ConversationRoomModels.swift */,
+				FE507AF1217F7F6800FE8920 /* ConversationRoomWorker.swift */,
+			);
+			path = ConversationRoom;
+			sourceTree = "<group>";
+		};
+		FE507AF8217F8AD300FE8920 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FE507AF9217F8AF500FE8920 /* ChatMessageCell.swift */,
+				FE507AFA217F8AF500FE8920 /* ChatMessageCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		FE966473217E1C05005B505D /* Cell */ = {
@@ -428,6 +468,7 @@
 				E5E4AEC62173EDDA003A8E1D /* LaunchScreen.storyboard in Resources */,
 				FE96647C217E1C61005B505D /* ListContactsCell.xib in Resources */,
 				FE966483217E1C92005B505D /* Avatar.xib in Resources */,
+				FE507AFC217F8AF500FE8920 /* ChatMessageCell.xib in Resources */,
 				E5E4AEC32173EDDA003A8E1D /* Assets.xcassets in Resources */,
 				FE966487217E1DF6005B505D /* ListChatRoomsCell.xib in Resources */,
 				E5E4AEC12173EDD6003A8E1D /* Main.storyboard in Resources */,
@@ -479,10 +520,12 @@
 				E5E4AF0E2173FB93003A8E1D /* RealmChatRoom.swift in Sources */,
 				E5E4AEFC2173F06F003A8E1D /* ListChatRoomsModels.swift in Sources */,
 				E5E4AF29217BB5A0003A8E1D /* ListContactsInteractor.swift in Sources */,
+				FE507AF7217F7F6800FE8920 /* ConversationRoomWorker.swift in Sources */,
 				E5E4AF032173F2DA003A8E1D /* ListChatRoomsPresenter.swift in Sources */,
 				E5E4AF072173F464003A8E1D /* ChatRoomsWorker.swift in Sources */,
 				E5E4AF122173FDAA003A8E1D /* RealmContactsInChatRoom.swift in Sources */,
 				E5E4AF0A2173FA0C003A8E1D /* ChatWorker.swift in Sources */,
+				FE507AF3217F7F6800FE8920 /* ConversationRoomRouter.swift in Sources */,
 				FE966482217E1C92005B505D /* Avatar.swift in Sources */,
 				E5E4AF27217BB5A0003A8E1D /* ListContactsModels.swift in Sources */,
 				E5E4AEBE2173EDD6003A8E1D /* ViewController.swift in Sources */,
@@ -490,12 +533,17 @@
 				E5E4AF012173F2D0003A8E1D /* ListChatRoomsInteractor.swift in Sources */,
 				E5E4AEBC2173EDD6003A8E1D /* AppDelegate.swift in Sources */,
 				E5E4AEFF2173F29E003A8E1D /* ListChatRoomsViewController.swift in Sources */,
+				FE507AF5217F7F6800FE8920 /* ConversationRoomViewController.swift in Sources */,
+				FE507AF4217F7F6800FE8920 /* ConversationRoomModels.swift in Sources */,
+				FE507AFB217F8AF500FE8920 /* ChatMessageCell.swift in Sources */,
 				E5E4AF25217BB5A0003A8E1D /* ListContactsWorker.swift in Sources */,
 				E5E4AF102173FD2E003A8E1D /* RealmContact.swift in Sources */,
 				E5E4AF24217BB5A0003A8E1D /* ListContactsPresenter.swift in Sources */,
+				FE507AF2217F7F6800FE8920 /* ConversationRoomPresenter.swift in Sources */,
 				FE966486217E1DF6005B505D /* ListChatRoomsCell.swift in Sources */,
 				E5E4AF052173F2E5003A8E1D /* ListChatRoomsRouter.swift in Sources */,
 				E5E4AF142173FF27003A8E1D /* RealmChatRoomConversation.swift in Sources */,
+				FE507AF6217F7F6800FE8920 /* ConversationRoomInteractor.swift in Sources */,
 				E5E4AF26217BB5A0003A8E1D /* ListContactsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
