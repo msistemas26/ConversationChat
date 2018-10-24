@@ -35,6 +35,8 @@
 		E5E4AF27217BB5A0003A8E1D /* ListContactsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */; };
 		E5E4AF28217BB5A0003A8E1D /* ListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */; };
 		E5E4AF29217BB5A0003A8E1D /* ListContactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */; };
+		FE3AAAC22180B0DF000B6A8E /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AAAC12180B0DF000B6A8E /* TextInputView.swift */; };
+		FE3AAAC72180BE3F000B6A8E /* UITextView+EstimatedSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AAAC62180BE3F000B6A8E /* UITextView+EstimatedSize.swift */; };
 		FE507AE7217E877B00FE8920 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE5217E877A00FE8920 /* Alamofire.framework */; };
 		FE507AE8217E877B00FE8920 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE5217E877A00FE8920 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE507AE9217E877B00FE8920 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE6217E877A00FE8920 /* AlamofireImage.framework */; };
@@ -122,6 +124,8 @@
 		E5E4AF21217BB5A0003A8E1D /* ListContactsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsModels.swift; sourceTree = "<group>"; };
 		E5E4AF22217BB5A0003A8E1D /* ListContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsViewController.swift; sourceTree = "<group>"; };
 		E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsInteractor.swift; sourceTree = "<group>"; };
+		FE3AAAC12180B0DF000B6A8E /* TextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
+		FE3AAAC62180BE3F000B6A8E /* UITextView+EstimatedSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+EstimatedSize.swift"; sourceTree = "<group>"; };
 		FE507AE5217E877A00FE8920 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FE507AE6217E877A00FE8920 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		FE507AEC217F7F6800FE8920 /* ConversationRoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRoomPresenter.swift; sourceTree = "<group>"; };
@@ -301,10 +305,35 @@
 			path = ListContacts;
 			sourceTree = "<group>";
 		};
+		FE3AAABF2180B097000B6A8E /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				FE3AAAC02180B0A6000B6A8E /* Input */,
+				FE507AF8217F8AD300FE8920 /* Cell */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		FE3AAAC02180B0A6000B6A8E /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				FE3AAAC12180B0DF000B6A8E /* TextInputView.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		FE3AAAC52180BE16000B6A8E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FE3AAAC62180BE3F000B6A8E /* UITextView+EstimatedSize.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FE507AEB217F7F3900FE8920 /* ConversationRoom */ = {
 			isa = PBXGroup;
 			children = (
-				FE507AF8217F8AD300FE8920 /* Cell */,
+				FE3AAABF2180B097000B6A8E /* Custom */,
 				FE507AEF217F7F6800FE8920 /* ConversationRoomViewController.swift */,
 				FE507AF0217F7F6800FE8920 /* ConversationRoomInteractor.swift */,
 				FE507AEC217F7F6800FE8920 /* ConversationRoomPresenter.swift */,
@@ -345,6 +374,7 @@
 		FE96647D217E1C6D005B505D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FE3AAAC52180BE16000B6A8E /* Extensions */,
 				FE96647F217E1C80005B505D /* Avatar */,
 			);
 			path = Common;
@@ -535,7 +565,9 @@
 				E5E4AEFF2173F29E003A8E1D /* ListChatRoomsViewController.swift in Sources */,
 				FE507AF5217F7F6800FE8920 /* ConversationRoomViewController.swift in Sources */,
 				FE507AF4217F7F6800FE8920 /* ConversationRoomModels.swift in Sources */,
+				FE3AAAC72180BE3F000B6A8E /* UITextView+EstimatedSize.swift in Sources */,
 				FE507AFB217F8AF500FE8920 /* ChatMessageCell.swift in Sources */,
+				FE3AAAC22180B0DF000B6A8E /* TextInputView.swift in Sources */,
 				E5E4AF25217BB5A0003A8E1D /* ListContactsWorker.swift in Sources */,
 				E5E4AF102173FD2E003A8E1D /* RealmContact.swift in Sources */,
 				E5E4AF24217BB5A0003A8E1D /* ListContactsPresenter.swift in Sources */,

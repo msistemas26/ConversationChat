@@ -24,6 +24,9 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var inputTextViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var textInputView: TextInputView!
+    
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -71,6 +74,7 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        textInputView.delegate = self
         setupCollectionView()
         fetchMessages()
     }
@@ -88,7 +92,25 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
 }
 
 
-// MARK: - UiCollectionView Delegates implementation
+// MARK: - TextInputViewProtocol Delegates implementation
+
+extension ConversationRoomViewController: TextInputViewProtocol {
+    func textInputViewDidChange(size: CGSize) {
+        if inputTextViewHeightConstraint.constant != size.height {
+        inputTextViewHeightConstraint.constant = size.height
+        
+        let  collectionViewOffset = CGPoint(x: 0, y: collectionView.contentSize.height - collectionView.bounds.size.height + 20)
+        collectionView.setContentOffset(collectionViewOffset, animated: false)
+        }
+    }
+    
+    func textInputViewDidPressSendButton(withText text: String){
+        
+    }
+}
+
+
+// MARK: - UICollectionView Delegates implementation
 
 extension ConversationRoomViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
