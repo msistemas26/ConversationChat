@@ -15,6 +15,12 @@ protocol TextInputViewProtocol {
 
 class TextInputView: UIView {
     
+    private enum Constants {
+        static var minHeightForTextInputView: CGFloat = 60.0
+        static var paddingForTextInputView: CGFloat = 20.0
+        static var textViewPlaceHolder: String = "Send Message"
+    }
+    
     public var delegate: TextInputViewProtocol?
     
     override init(frame: CGRect) {
@@ -29,8 +35,9 @@ class TextInputView: UIView {
     
     let messageTextView: UITextView = {
         let textView = UITextView()
-        textView.font = UIFont.systemFont(ofSize: 18.0)
-        textView.text = "Send Message"
+        textView.font = UIFont(name: "verdana", size: 18.0)
+        textView.text = ""
+        textView.placeholder = Constants.textViewPlaceHolder
         textView.backgroundColor = UIColor.white
         textView.tintColor = UIColor.black
         return textView
@@ -38,16 +45,17 @@ class TextInputView: UIView {
     
     let sendMessageButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.text = "▶️"
-        button.backgroundColor = UIColor.red
+        button.setTitle("▶️", for: .normal)
         return button
     }()
     
     private func setupViews() {
         
+        
         addSubview(messageTextView)
         addSubview(sendMessageButton)
         
+        sendMessageButton.addTarget(self, action: #selector(self.sendButtonpressed), for: .touchUpInside)
         messageTextView.delegate = self
         
         // Setup Constraints
@@ -60,17 +68,26 @@ class TextInputView: UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[messageTextView]-10-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[sendMessageButton(40)]-10-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
     }
+    
+    @objc private func sendButtonpressed() {
+        if let delegate = delegate {
+            delegate.textInputViewDidPressSendButton(withText: messageTextView.text)
+        }
+    }
+    
+    public func clear(){
+        messageTextView.text = ""
+        updatePlaceHolder()
+        updateMessageTextViewHeight()
+    }
+    
 }
 
 extension TextInputView: UITextViewDelegate {
     
-    private enum Constants {
-        static var minHeightForTextInputView: CGFloat = 60.0
-        static var paddingForTextInputView: CGFloat = 20.0
-    }
-    
     func textViewDidChange(_ textView: UITextView) {
         updateMessageTextViewHeight()
+        updatePlaceHolder()
     }
     
     private func updateMessageTextViewHeight() {
@@ -83,6 +100,14 @@ extension TextInputView: UITextViewDelegate {
         
         if let delegate = delegate {
             delegate.textInputViewDidChange(size: newSize)
+        }
+    }
+    
+    func updatePlaceHolder() {
+        for view in messageTextView.subviews {
+            if let placeholder = view as? UILabel {
+                placeholder.isHidden = (messageTextView.text.count > 0)
+            }
         }
     }
 }

@@ -105,7 +105,7 @@ extension ConversationRoomViewController: TextInputViewProtocol {
     }
     
     func textInputViewDidPressSendButton(withText text: String){
-        
+        print(text)
     }
 }
 
