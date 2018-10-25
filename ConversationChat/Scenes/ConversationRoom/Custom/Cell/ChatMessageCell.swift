@@ -12,7 +12,7 @@ class ChatMessageCell: UICollectionViewCell {
     
     let messageTextView: UITextView = {
         let textView = UITextView()
-        textView.font = UIFont.systemFont(ofSize: 18.0)
+        textView.font = UIFont.systemFont(ofSize: 14.0)
         textView.text = "Sample Message"
         textView.backgroundColor = UIColor.clear
         textView.isScrollEnabled = false
@@ -52,7 +52,7 @@ class ChatMessageCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setup(withDisplayedMessage: ListMessages.FetchMessages.ViewModel.DisplayedMessage){
+    func setup(withDisplayedMessage: ConversationRoom.DisplayedMessage){
         messageTextView.text = withDisplayedMessage.message
         addSubview(textBubbleView)
         addSubview(messageTextView)

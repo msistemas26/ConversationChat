@@ -9,7 +9,8 @@ import Foundation
 
 protocol ConversationRoomPresentationLogic
 {
-    func presentMessages(response: ListMessages.FetchMessages.Response)
+    func presentMessages(response: ConversationRoom.FetchMessages.Response)
+    func presentMessage(response: ConversationRoom.SendMessage.Response)
 }
 
 class ConversationRoomPresenter: ConversationRoomPresentationLogic
@@ -18,21 +19,37 @@ class ConversationRoomPresenter: ConversationRoomPresentationLogic
     
     // MARK:
     
-    func presentMessages(response: ListMessages.FetchMessages.Response)
+    func presentMessages(response: ConversationRoom.FetchMessages.Response)
     {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        var messages: [ListMessages.FetchMessages.ViewModel.DisplayedMessage] = []
+        var messages: [ConversationRoom.DisplayedMessage] = []
         for message in response.messages
         {
             let timestamp = formatter.string(from: message.timestamp)
             
-            let displayedMessage = ListMessages.FetchMessages.ViewModel.DisplayedMessage(id: message.id, chat_room_id: message.chat_room_id, from_id: message.from_id, to_id: message.to_id, timestamp: timestamp, message: message.message, isReaded: message.isReaded)
+            let displayedMessage = ConversationRoom.DisplayedMessage(id: message.id, chat_room_id: message.chat_room_id, from_id: message.from_id, to_id: message.to_id, timestamp: timestamp, message: message.message, isReaded: message.isReaded)
             
             messages.append(displayedMessage)
         }
-        let viewModel = ListMessages.FetchMessages.ViewModel(displayedMessages: messages)
+        let viewModel = ConversationRoom.FetchMessages.ViewModel(displayedMessages: messages)
         viewController?.displayMessages(viewModel: viewModel)
+    }
+    
+    func presentMessage(response: ConversationRoom.SendMessage.Response)
+    {
+        let message = response.message
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let timestamp = formatter.string(from: message.timestamp)
+        
+        let displayedMessage = ConversationRoom.DisplayedMessage(id: message.id, chat_room_id: message.chat_room_id, from_id: message.from_id, to_id: message.to_id, timestamp: timestamp, message: message.message, isReaded: message.isReaded)
+        
+        let viewModel = ConversationRoom.SendMessage.ViewModel(displayedMessage: displayedMessage)
+        
+        viewController?.displayMessage(viewModel: viewModel)
     }
 }

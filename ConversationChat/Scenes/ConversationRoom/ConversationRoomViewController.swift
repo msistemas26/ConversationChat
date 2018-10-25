@@ -12,7 +12,8 @@ import UIKit
 
 protocol ConversationRoomDisplayLogic: class
 {
-    func displayMessages(viewModel: ListMessages.FetchMessages.ViewModel)
+    func displayMessages(viewModel: ConversationRoom.FetchMessages.ViewModel)
+    func displayMessage(viewModel: ConversationRoom.SendMessage.ViewModel)
 }
 
 
@@ -20,7 +21,7 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
     
     var interactor: ConversationRoomBusinessLogic?
     var router: (NSObjectProtocol & ConversationRoomRoutingLogic & ConversationRoomDataPassing)?
-    var displayedMessages: [ListMessages.FetchMessages.ViewModel.DisplayedMessage] = []
+    var displayedMessages: [ConversationRoom.DisplayedMessage] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -81,13 +82,28 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
     
     func fetchMessages()
     {
-        let request = ListMessages.FetchMessages.Request()
+        let request = ConversationRoom.FetchMessages.Request()
         interactor?.fetchMessages(request: request)
     }
     
-    func displayMessages(viewModel: ListMessages.FetchMessages.ViewModel)
+    func displayMessages(viewModel: ConversationRoom.FetchMessages.ViewModel)
     {
         displayedMessages = viewModel.displayedMessages
+        collectionView.reloadData()
+        collectionView.performBatchUpdates(nil, completion: {
+            (result) in
+            self.collectionView.scrollToBottom(animated: false)
+        })
+    }
+    
+    func displayMessage(viewModel: ConversationRoom.SendMessage.ViewModel)
+    {
+        displayedMessages.append(viewModel.displayedMessage)
+        collectionView.reloadData()
+        collectionView.performBatchUpdates(nil, completion: {
+            (result) in
+            self.collectionView.scrollToBottom(animated: true)
+        })
     }
 }
 
@@ -105,7 +121,9 @@ extension ConversationRoomViewController: TextInputViewProtocol {
     }
     
     func textInputViewDidPressSendButton(withText text: String){
-        print(text)
+        let message = ConversationRoom.SendMessage.Request.Message(chat_room_id: 0, from_id: 0, to_id: 0, message: text)
+        let request  = ConversationRoom.SendMessage.Request(message: message)
+        interactor?.sendMessage(request: request)
     }
 }
 
@@ -131,12 +149,12 @@ extension ConversationRoomViewController: UICollectionViewDelegate, UICollection
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ChatMessageCell.self), for: indexPath) as? ChatMessageCell else { return UICollectionViewCell() }
         cell.setup(withDisplayedMessage: displayedMessage)
         
-        let size = CGSize(width: 250, height: 1000)
+        let size = CGSize(width: (view.frame.width * 0.60), height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         let estimatedFrame =  NSString(string: displayedMessage.message).boundingRect(
             with: size,
             options: options,
-            attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)],
+            attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14.0)],
             context: nil)
         if displayedMessage.isReaded {
             cell.messageTextView.frame = CGRect(x: 40 + 18, y: 0, width: estimatedFrame.width + 14, height: estimatedFrame.height + 20)
@@ -166,12 +184,12 @@ extension ConversationRoomViewController: UICollectionViewDelegate, UICollection
         let displayedMessage = displayedMessages[indexPath.row]
         let message = displayedMessage.message
         
-        let size = CGSize(width: 250, height: 1000)
+        let size = CGSize(width: (view.frame.width * 0.60), height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         let estimatedFrame =  NSString(string: message).boundingRect(
             with: size,
             options: options,
-            attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)],
+            attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14.0)],
             context: nil)
         
         return CGSize(width: view.frame.width, height: estimatedFrame.height + 20)
