@@ -9,8 +9,9 @@
 //  https://github.com/HelmMobile/clean-swift-templates
 
 protocol ConversationRoomBusinessLogic
-    {
-        func fetchMessages(request: ListMessages.FetchMessages.Request)
+{
+    func fetchMessages(request: ConversationRoom.FetchMessages.Request)
+    func sendMessage(request: ConversationRoom.SendMessage.Request)
 }
 
 protocol ConversationRoomDataStore
@@ -26,14 +27,28 @@ class ConversationRoomInteractor: ConversationRoomBusinessLogic, ConversationRoo
     
     // MARK:
     
-    func fetchMessages(request: ListMessages.FetchMessages.Request)
+    func fetchMessages(request: ConversationRoom.FetchMessages.Request)
     {
         worker = ConversationRoomWorker()
         
         worker?.fetchMessages{ (messages) in
             self.messages = messages
-            let response = ListMessages.FetchMessages.Response(messages: messages)
+            let response = ConversationRoom.FetchMessages.Response(messages: messages)
             self.presenter?.presentMessages(response: response)
+        }
+    }
+    
+    func sendMessage(request: ConversationRoom.SendMessage.Request)
+    {
+        let message = request.message
+        
+        worker = ConversationRoomWorker()
+        
+        worker?.sendMessage(message: message) { (response)  in
+            let message = response.message
+            self.messages.append(message)
+            let response = ConversationRoom.SendMessage.Response(message: message)
+            self.presenter?.presentMessage(response: response)
         }
     }
 }

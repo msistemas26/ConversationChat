@@ -72,6 +72,7 @@ class TextInputView: UIView {
     @objc private func sendButtonpressed() {
         if let delegate = delegate {
             delegate.textInputViewDidPressSendButton(withText: messageTextView.text)
+            clear()
         }
     }
     

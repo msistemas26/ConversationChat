@@ -37,6 +37,7 @@
 		E5E4AF29217BB5A0003A8E1D /* ListContactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */; };
 		FE3AAAC22180B0DF000B6A8E /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AAAC12180B0DF000B6A8E /* TextInputView.swift */; };
 		FE3AAAC72180BE3F000B6A8E /* UITextView+EstimatedSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AAAC62180BE3F000B6A8E /* UITextView+EstimatedSize.swift */; };
+		FE3AAAEE21822828000B6A8E /* UIScrollView+ToBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AAAED21822828000B6A8E /* UIScrollView+ToBottom.swift */; };
 		FE507AE7217E877B00FE8920 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE5217E877A00FE8920 /* Alamofire.framework */; };
 		FE507AE8217E877B00FE8920 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE5217E877A00FE8920 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE507AE9217E877B00FE8920 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE507AE6217E877A00FE8920 /* AlamofireImage.framework */; };
@@ -126,6 +127,7 @@
 		E5E4AF23217BB5A0003A8E1D /* ListContactsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsInteractor.swift; sourceTree = "<group>"; };
 		FE3AAAC12180B0DF000B6A8E /* TextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
 		FE3AAAC62180BE3F000B6A8E /* UITextView+EstimatedSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+EstimatedSize.swift"; sourceTree = "<group>"; };
+		FE3AAAED21822828000B6A8E /* UIScrollView+ToBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ToBottom.swift"; sourceTree = "<group>"; };
 		FE507AE5217E877A00FE8920 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FE507AE6217E877A00FE8920 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		FE507AEC217F7F6800FE8920 /* ConversationRoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRoomPresenter.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				FE3AAAC62180BE3F000B6A8E /* UITextView+EstimatedSize.swift */,
+				FE3AAAED21822828000B6A8E /* UIScrollView+ToBottom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				FE507AF4217F7F6800FE8920 /* ConversationRoomModels.swift in Sources */,
 				FE3AAAC72180BE3F000B6A8E /* UITextView+EstimatedSize.swift in Sources */,
 				FE507AFB217F8AF500FE8920 /* ChatMessageCell.swift in Sources */,
+				FE3AAAEE21822828000B6A8E /* UIScrollView+ToBottom.swift in Sources */,
 				FE3AAAC22180B0DF000B6A8E /* TextInputView.swift in Sources */,
 				E5E4AF25217BB5A0003A8E1D /* ListContactsWorker.swift in Sources */,
 				E5E4AF102173FD2E003A8E1D /* RealmContact.swift in Sources */,
