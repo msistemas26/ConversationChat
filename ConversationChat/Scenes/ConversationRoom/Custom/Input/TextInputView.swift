@@ -40,6 +40,7 @@ class TextInputView: UIView {
         textView.placeholder = Constants.textViewPlaceHolder
         textView.backgroundColor = UIColor.white
         textView.tintColor = UIColor.black
+        textView.autocorrectionType = .no
         return textView
     }()
     

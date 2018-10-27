@@ -75,6 +75,7 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        addKeyboardObservers()
         textInputView.delegate = self
         setupCollectionView()
         fetchMessages()
@@ -197,5 +198,35 @@ extension ConversationRoomViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+    }
+}
+
+extension ConversationRoomViewController
+{
+    func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        collectionView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
+    }
+    
+    @objc func tap(sender: UITapGestureRecognizer){
+        textInputView.messageTextView.resignFirstResponder()
+        collectionView.scrollToBottom(animated: false)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
 }
