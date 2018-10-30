@@ -100,11 +100,9 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
     func displayMessage(viewModel: ConversationRoom.SendMessage.ViewModel)
     {
         displayedMessages.append(viewModel.displayedMessage)
-        collectionView.reloadData()
-        collectionView.performBatchUpdates(nil, completion: {
-            (result) in
-            self.collectionView.scrollToBottom(animated: true)
-        })
+        let indexPath = IndexPath(item: displayedMessages.count - 1, section: 0)
+        collectionView.insertItems(at: [indexPath])
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
 }
 
