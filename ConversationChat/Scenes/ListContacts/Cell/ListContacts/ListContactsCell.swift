@@ -20,7 +20,6 @@ class ListContactsCell: UITableViewCell {
     func setup(withDisplayedContact displayedContact: ListContacts.FetchContacts.ViewModel.DisplayedContact) {
         self.displayedContact = displayedContact
         showData()
-        setAvatar()
         setThemes()
         setTitleConstraint()
     }
@@ -28,6 +27,7 @@ class ListContactsCell: UITableViewCell {
     private func showData() {
         title.text = displayedContact.fullname
         desc.text = displayedContact.description
+        setAvatar()
     }
     
     private func setAvatar() {

@@ -1,12 +1,12 @@
 //
-//  ListContactsModels.swift
+//  CreateGroupModels.swift
 //  ConversationChat
 //
 //  Created by Raul Mantilla on 20/10/18.
 //  Copyright (c) 2018 Raul Mantilla. All rights reserved.
 //
 
-enum ListContacts
+enum CreateGroup
 {
     // MARK: Use cases
     

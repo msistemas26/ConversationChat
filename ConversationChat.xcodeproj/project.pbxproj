@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E54B2297219535A60057FB5C /* CreateGroupModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B2291219535A50057FB5C /* CreateGroupModels.swift */; };
+		E54B2298219535A60057FB5C /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B2292219535A50057FB5C /* CreateGroupViewController.swift */; };
+		E54B2299219535A60057FB5C /* CreateGroupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B2293219535A50057FB5C /* CreateGroupInteractor.swift */; };
+		E54B229A219535A60057FB5C /* CreateGroupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B2294219535A50057FB5C /* CreateGroupRouter.swift */; };
+		E54B229B219535A60057FB5C /* CreateGroupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B2295219535A50057FB5C /* CreateGroupPresenter.swift */; };
+		E54B229C219535A60057FB5C /* CreateGroupWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B2296219535A50057FB5C /* CreateGroupWorker.swift */; };
+		E54B22A0219535C00057FB5C /* GroupContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B229E219535C00057FB5C /* GroupContactsCell.swift */; };
+		E54B22A1219535C00057FB5C /* GroupContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54B229F219535C00057FB5C /* GroupContactsCell.xib */; };
 		E5E4AEBC2173EDD6003A8E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AEBB2173EDD6003A8E1D /* AppDelegate.swift */; };
 		E5E4AEBE2173EDD6003A8E1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AEBD2173EDD6003A8E1D /* ViewController.swift */; };
 		E5E4AEC12173EDD6003A8E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E4AEBF2173EDD6003A8E1D /* Main.storyboard */; };
@@ -93,6 +101,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E54B2291219535A50057FB5C /* CreateGroupModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupModels.swift; sourceTree = "<group>"; };
+		E54B2292219535A50057FB5C /* CreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		E54B2293219535A50057FB5C /* CreateGroupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupInteractor.swift; sourceTree = "<group>"; };
+		E54B2294219535A50057FB5C /* CreateGroupRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupRouter.swift; sourceTree = "<group>"; };
+		E54B2295219535A50057FB5C /* CreateGroupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupPresenter.swift; sourceTree = "<group>"; };
+		E54B2296219535A50057FB5C /* CreateGroupWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupWorker.swift; sourceTree = "<group>"; };
+		E54B229E219535C00057FB5C /* GroupContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupContactsCell.swift; sourceTree = "<group>"; };
+		E54B229F219535C00057FB5C /* GroupContactsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupContactsCell.xib; sourceTree = "<group>"; };
 		E5E4AEB82173EDD6003A8E1D /* ConversationChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConversationChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E4AEBB2173EDD6003A8E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E4AEBD2173EDD6003A8E1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +191,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E54B2289219522F00057FB5C /* ListContacts */ = {
+			isa = PBXGroup;
+			children = (
+				FE966479217E1C61005B505D /* ListContactsCell.swift */,
+				FE96647A217E1C61005B505D /* ListContactsCell.xib */,
+			);
+			path = ListContacts;
+			sourceTree = "<group>";
+		};
+		E54B228F219535550057FB5C /* CreateGroup */ = {
+			isa = PBXGroup;
+			children = (
+				E54B229D219535B40057FB5C /* Cell */,
+				E54B2292219535A50057FB5C /* CreateGroupViewController.swift */,
+				E54B2293219535A50057FB5C /* CreateGroupInteractor.swift */,
+				E54B2291219535A50057FB5C /* CreateGroupModels.swift */,
+				E54B2295219535A50057FB5C /* CreateGroupPresenter.swift */,
+				E54B2294219535A50057FB5C /* CreateGroupRouter.swift */,
+				E54B2296219535A50057FB5C /* CreateGroupWorker.swift */,
+			);
+			path = CreateGroup;
+			sourceTree = "<group>";
+		};
+		E54B229D219535B40057FB5C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E54B229E219535C00057FB5C /* GroupContactsCell.swift */,
+				E54B229F219535C00057FB5C /* GroupContactsCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		E5E4AEAF2173EDD6003A8E1D = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +305,7 @@
 		E5E4AEFD2173F186003A8E1D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E54B228F219535550057FB5C /* CreateGroup */,
 				FE507AEB217F7F3900FE8920 /* ConversationRoom */,
 				FE96647D217E1C6D005B505D /* Common */,
 				E5E4AF1D217BB57A003A8E1D /* ListContacts */,
@@ -368,8 +417,7 @@
 		FE966478217E1C37005B505D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				FE966479217E1C61005B505D /* ListContactsCell.swift */,
-				FE96647A217E1C61005B505D /* ListContactsCell.xib */,
+				E54B2289219522F00057FB5C /* ListContacts */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -501,6 +549,7 @@
 				E5E4AEC62173EDDA003A8E1D /* LaunchScreen.storyboard in Resources */,
 				FE96647C217E1C61005B505D /* ListContactsCell.xib in Resources */,
 				FE966483217E1C92005B505D /* Avatar.xib in Resources */,
+				E54B22A1219535C00057FB5C /* GroupContactsCell.xib in Resources */,
 				FE507AFC217F8AF500FE8920 /* ChatMessageCell.xib in Resources */,
 				E5E4AEC32173EDDA003A8E1D /* Assets.xcassets in Resources */,
 				FE966487217E1DF6005B505D /* ListChatRoomsCell.xib in Resources */,
@@ -558,17 +607,23 @@
 				E5E4AF072173F464003A8E1D /* ChatRoomsWorker.swift in Sources */,
 				E5E4AF122173FDAA003A8E1D /* RealmContactsInChatRoom.swift in Sources */,
 				E5E4AF0A2173FA0C003A8E1D /* ChatWorker.swift in Sources */,
+				E54B229B219535A60057FB5C /* CreateGroupPresenter.swift in Sources */,
 				FE507AF3217F7F6800FE8920 /* ConversationRoomRouter.swift in Sources */,
 				FE966482217E1C92005B505D /* Avatar.swift in Sources */,
 				E5E4AF27217BB5A0003A8E1D /* ListContactsModels.swift in Sources */,
+				E54B229C219535A60057FB5C /* CreateGroupWorker.swift in Sources */,
 				E5E4AEBE2173EDD6003A8E1D /* ViewController.swift in Sources */,
 				FE96647B217E1C61005B505D /* ListContactsCell.swift in Sources */,
+				E54B2298219535A60057FB5C /* CreateGroupViewController.swift in Sources */,
 				E5E4AF012173F2D0003A8E1D /* ListChatRoomsInteractor.swift in Sources */,
 				E5E4AEBC2173EDD6003A8E1D /* AppDelegate.swift in Sources */,
+				E54B2299219535A60057FB5C /* CreateGroupInteractor.swift in Sources */,
 				E5E4AEFF2173F29E003A8E1D /* ListChatRoomsViewController.swift in Sources */,
 				FE507AF5217F7F6800FE8920 /* ConversationRoomViewController.swift in Sources */,
+				E54B2297219535A60057FB5C /* CreateGroupModels.swift in Sources */,
 				FE507AF4217F7F6800FE8920 /* ConversationRoomModels.swift in Sources */,
 				FE3AAAC72180BE3F000B6A8E /* UITextView+EstimatedSize.swift in Sources */,
+				E54B229A219535A60057FB5C /* CreateGroupRouter.swift in Sources */,
 				FE507AFB217F8AF500FE8920 /* ChatMessageCell.swift in Sources */,
 				FE3AAAEE21822828000B6A8E /* UIScrollView+ToBottom.swift in Sources */,
 				FE3AAAC22180B0DF000B6A8E /* TextInputView.swift in Sources */,
@@ -580,6 +635,7 @@
 				E5E4AF052173F2E5003A8E1D /* ListChatRoomsRouter.swift in Sources */,
 				E5E4AF142173FF27003A8E1D /* RealmChatRoomConversation.swift in Sources */,
 				FE507AF6217F7F6800FE8920 /* ConversationRoomInteractor.swift in Sources */,
+				E54B22A0219535C00057FB5C /* GroupContactsCell.swift in Sources */,
 				E5E4AF26217BB5A0003A8E1D /* ListContactsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,10 +17,12 @@ protocol ConversationRoomBusinessLogic
 protocol ConversationRoomDataStore
 {
     var messages: [RealmChatRoomConversation] { get set }
+    var title: String? { get set }
 }
 
 class ConversationRoomInteractor: ConversationRoomBusinessLogic, ConversationRoomDataStore
 {
+    var title: String?
     var presenter: ConversationRoomPresentationLogic?
     var worker: ConversationRoomWorker?
     var messages: [RealmChatRoomConversation] = []

@@ -20,6 +20,7 @@ protocol ListContactsBusinessLogic
 protocol ListContactsDataStore
 {
   var contacts: [RealmContact] { get set }
+  var selectedContact: ListContacts.FetchContacts.ViewModel.DisplayedContact? { get set }
 }
 
 class ListContactsInteractor: ListContactsBusinessLogic, ListContactsDataStore
@@ -27,6 +28,7 @@ class ListContactsInteractor: ListContactsBusinessLogic, ListContactsDataStore
   var presenter: ListContactsPresentationLogic?
   var worker: ListContactsWorker?
   var contacts: [RealmContact] = []
+  var selectedContact: ListContacts.FetchContacts.ViewModel.DisplayedContact?
   
   // MARK: Do something
   

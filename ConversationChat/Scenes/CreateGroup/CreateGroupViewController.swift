@@ -1,5 +1,5 @@
 //
-//  ListContactsViewController.swift
+//  CreateGroupViewController.swift
 //  ConversationChat
 //
 //  Created by Raul Mantilla on 20/10/18.
@@ -12,16 +12,17 @@
 
 import UIKit
 
-protocol ListContactsDisplayLogic: class
+protocol CreateGroupDisplayLogic: class
 {
-    func displayContacts(viewModel: ListContacts.FetchContacts.ViewModel)
+    func displayContacts(viewModel: CreateGroup.FetchContacts.ViewModel)
 }
 
-class ListContactsViewController: UIViewController, ListContactsDisplayLogic
+class CreateGroupViewController: UIViewController, CreateGroupDisplayLogic
 {
-    var interactor: ListContactsBusinessLogic?
-    var router: (NSObjectProtocol & ListContactsRoutingLogic & ListContactsDataPassing)?
-    var displayedContacts: [ListContacts.FetchContacts.ViewModel.DisplayedContact] = []
+    var interactor: CreateGroupBusinessLogic?
+    var router: (NSObjectProtocol & CreateGroupRoutingLogic & CreateGroupDataPassing)?
+    var displayedContacts: [CreateGroup.FetchContacts.ViewModel.DisplayedContact] = []
+    var selectedContacts: Set<CreateGroup.FetchContacts.ViewModel.DisplayedContact> = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -44,9 +45,9 @@ class ListContactsViewController: UIViewController, ListContactsDisplayLogic
     private func setup()
     {
         let viewController = self
-        let interactor = ListContactsInteractor()
-        let presenter = ListContactsPresenter()
-        let router = ListContactsRouter()
+        let interactor = CreateGroupInteractor()
+        let presenter = CreateGroupPresenter()
+        let router = CreateGroupRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -78,11 +79,11 @@ class ListContactsViewController: UIViewController, ListContactsDisplayLogic
     
     func fetchContacts()
     {
-        let request = ListContacts.FetchContacts.Request()
+        let request = CreateGroup.FetchContacts.Request()
         interactor?.fetchContacts(request: request)
     }
     
-    func displayContacts(viewModel: ListContacts.FetchContacts.ViewModel)
+    func displayContacts(viewModel: CreateGroup.FetchContacts.ViewModel)
     {
         displayedContacts = viewModel.displayedContacts
     }
@@ -91,10 +92,10 @@ class ListContactsViewController: UIViewController, ListContactsDisplayLogic
 
 // MARK: - UItableView Delegates implementation
 
-extension ListContactsViewController: UITableViewDelegate, UITableViewDataSource
+extension CreateGroupViewController: UITableViewDelegate, UITableViewDataSource
 {
     func setUpTableView() {
-        tableView.register(UINib(nibName: String(describing: ListContactsCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ListContactsCell.self))
+        tableView.register(UINib(nibName: String(describing: GroupContactsCell.self), bundle: nil), forCellReuseIdentifier: String(describing: GroupContactsCell.self))
         tableView.estimatedRowHeight = 70.0
     }
     
@@ -111,14 +112,22 @@ extension ListContactsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let displayedContact = displayedContacts[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ListContactsCell.self), for: indexPath) as? ListContactsCell else { return UITableViewCell() }
         
-        cell.setup(withDisplayedContact: displayedContact)
-        return cell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: GroupContactsCell.self), for: indexPath) as? GroupContactsCell else { return UITableViewCell() }
+            cell.setup(withDisplayedContact: displayedContact, selected: selectedContacts.contains(displayedContact))
+            return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        router?.dataStore?.selectedContact = displayedContacts[indexPath.row]
-        router?.routeToConversation()
+        let displayedContact = displayedContacts[indexPath.row]
+        if selectedContacts.contains(displayedContact) {
+            selectedContacts.remove(displayedContact)
+        } else {
+            selectedContacts.insert(displayedContact)
+        }
+        tableView.reloadRows(at: [indexPath], with: .none)
+        
+        //router?.routeBack(withCategory: displayedContact)
     }
 }

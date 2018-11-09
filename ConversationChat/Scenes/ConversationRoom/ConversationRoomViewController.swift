@@ -75,6 +75,7 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.navigationItem.title = router?.dataStore?.title
         addKeyboardObservers()
         textInputView.delegate = self
         setupCollectionView()

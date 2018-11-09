@@ -28,7 +28,7 @@ class ListContactsPresenter: ListContactsPresentationLogic
     var contacts: [ListContacts.FetchContacts.ViewModel.DisplayedContact] = []
     for contact in response.contacts
     {
-        let displayedContacts = ListContacts.FetchContacts.ViewModel.DisplayedContact(id: contact.id, name: contact.name, lastname: contact.lastname, fullname: contact.fullname, initials: contact.initials, phoneNumber: contact.phoneNumber, avatarUrl: contact.avatarUrl, description: nil)
+        let displayedContacts = ListContacts.FetchContacts.ViewModel.DisplayedContact(id: contact.id, name: contact.name, lastname: contact.lastname, fullname: contact.fullname, initials: contact.initials, phoneNumber: contact.phoneNumber, avatarUrl: contact.avatarUrl, description: nil, hashValue: 0)
         
         contacts.append(displayedContacts)
     }

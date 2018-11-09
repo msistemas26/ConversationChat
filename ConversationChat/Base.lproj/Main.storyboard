@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PkC-tA-kvp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rsb-fc-XPX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,7 +35,7 @@
         <!--Conversation Room View Controller-->
         <scene sceneID="W8E-fC-CQT">
             <objects>
-                <viewController id="PkC-tA-kvp" customClass="ConversationRoomViewController" customModule="ConversationChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConversationRoomViewController" id="PkC-tA-kvp" customClass="ConversationRoomViewController" customModule="ConversationChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xVw-af-Xd0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
             </objects>
             <point key="canvasLocation" x="972" y="737"/>
         </scene>
-        <!--List Contacts View Controller-->
+        <!--Title-->
         <scene sceneID="ZKb-Fc-TCq">
             <objects>
                 <viewController id="qmd-5u-PFV" customClass="ListContactsViewController" customModule="ConversationChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,13 +120,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="veY-zJ-SAv"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="LVU-k2-br7">
+                        <barButtonItem key="rightBarButtonItem" title="Group" id="lrZ-ei-BuH">
+                            <connections>
+                                <segue destination="lvc-SV-vsV" kind="show" id="Aoi-IM-5VD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="D0W-ud-ncz" id="Qe3-xt-QU0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Gt-Lc-y0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1692" y="33"/>
+            <point key="canvasLocation" x="1674" y="33"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y11-ao-8ZA">
@@ -145,6 +152,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xof-Bm-2Lp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="193" y="33"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="YrE-bS-SSP">
+            <objects>
+                <viewController id="lvc-SV-vsV" customClass="CreateGroupViewController" customModule="ConversationChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xYF-ia-FQK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GhW-GZ-Zh2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lvc-SV-vsV" id="IPf-zO-vbJ"/>
+                                    <outlet property="delegate" destination="lvc-SV-vsV" id="EWX-U3-EVk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GhW-GZ-Zh2" firstAttribute="leading" secondItem="0Kz-rH-CBJ" secondAttribute="leading" id="6eC-n3-QHJ"/>
+                            <constraint firstItem="0Kz-rH-CBJ" firstAttribute="trailing" secondItem="GhW-GZ-Zh2" secondAttribute="trailing" id="OJw-zn-rBa"/>
+                            <constraint firstItem="GhW-GZ-Zh2" firstAttribute="top" secondItem="0Kz-rH-CBJ" secondAttribute="top" id="VdL-gs-SvJ"/>
+                            <constraint firstItem="0Kz-rH-CBJ" firstAttribute="bottom" secondItem="GhW-GZ-Zh2" secondAttribute="bottom" id="c2h-La-cxe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Kz-rH-CBJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="oht-cZ-eT7"/>
+                    <connections>
+                        <outlet property="tableView" destination="GhW-GZ-Zh2" id="8Ak-g6-VCM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="De4-R8-PMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2484" y="33"/>
         </scene>
     </scenes>
 </document>

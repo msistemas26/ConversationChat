@@ -12,49 +12,45 @@
 
 import UIKit
 
-@objc protocol ListContactsRoutingLogic
+protocol ListContactsRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToConversation()
 }
 
 protocol ListContactsDataPassing
 {
-  var dataStore: ListContactsDataStore? { get }
+    var dataStore: ListContactsDataStore? { get set }
 }
 
 class ListContactsRouter: NSObject, ListContactsRoutingLogic, ListContactsDataPassing
 {
-  weak var viewController: ListContactsViewController?
-  var dataStore: ListContactsDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: ListContactsViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: ListContactsDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    weak var viewController: ListContactsViewController?
+    var dataStore: ListContactsDataStore?
+    
+    // MARK: Routing
+    
+    func routeToConversation()
+    {   
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "ConversationRoomViewController") as! ConversationRoomViewController
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToConversation(source: dataStore!, destination: &destinationDS)
+        navigateToConversation(source: viewController!, destination: destinationVC)
+    }
+    
+    // MARK: Navigation
+    
+    func navigateToConversation(source: ListContactsViewController, destination: ConversationRoomViewController)
+    {
+        source.show(destination, sender: nil)
+    }
+    
+    // MARK: Passing data
+    
+    func passDataToConversation(source: ListContactsDataStore, destination: inout ConversationRoomDataStore)
+    {
+        if let controllerTitle = source.selectedContact?.name {
+            destination.title = controllerTitle
+        }
+    }
 }
