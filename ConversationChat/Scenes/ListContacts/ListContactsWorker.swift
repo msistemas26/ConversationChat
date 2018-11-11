@@ -15,15 +15,23 @@ import RealmSwift
 
 class ListContactsWorker
 {
-    func fetchContacts(completionHandler completion: @escaping ([RealmContact]) -> Void)
+    func fetchContacts(completionHandler completion: @escaping ([Contact]) -> Void)
     {
         let realm = try! Realm()
-        var contacts: [RealmContact] = []
+        var contacts: [Contact] = []
         
         let realmContacts = realm.objects(RealmContact.self)
         for realmContact in realmContacts {
-            contacts.append(realmContact)
+            contacts.append(Contact(withRealmContact: realmContact))
         }
         completion(contacts)
+    }
+    
+    func createChatRoom(withContacts contacts: [Contact], completionHandler completion: @escaping (ChatRoom) -> Void)
+    {
+        let worker = ChatWorker()
+        worker.createChatRoom(withContacts: contacts) { (chatRoom) in
+            completion(chatRoom)
+        }
     }
 }

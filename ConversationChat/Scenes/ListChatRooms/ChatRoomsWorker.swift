@@ -15,14 +15,14 @@ import RealmSwift
 
 class ListChatRoomsWorker
 {
-    func fetchChatRooms(completionHandler completion: @escaping ([RealmChatRooms]) -> Void)
+    func fetchChatRooms(completionHandler completion: @escaping ([ChatRoom]) -> Void)
     {
         let realm = try! Realm()
-        var chatRooms: [RealmChatRooms] = []
+        var chatRooms: [ChatRoom] = []
         
-        let realmChatRooms = realm.objects(RealmChatRooms.self)
+        let realmChatRooms = realm.objects(RealmChatRoom.self)
         for realmChatRoom in realmChatRooms {
-            chatRooms.append(realmChatRoom)
+            chatRooms.append(ChatRoom(withRealmChatRoom: realmChatRoom))
         }
         completion(chatRooms)
     }

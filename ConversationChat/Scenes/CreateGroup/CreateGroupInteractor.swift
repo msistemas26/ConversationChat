@@ -10,23 +10,23 @@ import UIKit
 
 protocol CreateGroupBusinessLogic
 {
-  func fetchContacts(request: CreateGroup.FetchContacts.Request)
+  func fetchContacts()
 }
 
 protocol CreateGroupDataStore
 {
-  var contacts: [RealmContact] { get set }
+  var contacts: [Contact] { get set }
 }
 
 class CreateGroupInteractor: CreateGroupBusinessLogic, CreateGroupDataStore
 {
   var presenter: CreateGroupPresentationLogic?
   var worker: CreateGroupWorker?
-  var contacts: [RealmContact] = []
+  var contacts: [Contact] = []
   
   // MARK: Do something
   
-  func fetchContacts(request: CreateGroup.FetchContacts.Request)
+  func fetchContacts()
   {
     worker = CreateGroupWorker()
     

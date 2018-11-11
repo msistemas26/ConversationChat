@@ -11,14 +11,24 @@ enum ConversationRoom
 {
     // MARK: Use cases
     
+    struct DisplayedMessage
+    {
+        var id: Int
+        var from: Contact
+        var timestamp: String
+        var message: String
+        var isReaded: Bool
+    }
+    
     enum FetchMessages
     {
         struct Request
         {
+            var chatRoom: ChatRoom
         }
         struct Response
         {
-            var messages: [RealmChatRoomConversation]
+            var messages: [Message]
         }
         struct ViewModel
         {
@@ -32,31 +42,20 @@ enum ConversationRoom
         {
             struct Message
             {
-                var chat_room_id: Int
-                var from_id: Int
-                var to_id: Int
+                var chat_room: Int
+                var from: Int
+                var to: Int
                 var message: String
             }
             var message: Message
         }
         struct Response
         {
-            var message: RealmChatRoomConversation
+            var message: Message
         }
         struct ViewModel
         {
             var displayedMessage: DisplayedMessage
         }
-    }
-    
-    struct DisplayedMessage
-    {
-        var id: Int
-        var chat_room_id: Int
-        var from_id: Int
-        var to_id: Int
-        var timestamp: String
-        var message: String
-        var isReaded: Bool
     }
 }

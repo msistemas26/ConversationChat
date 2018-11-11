@@ -9,7 +9,6 @@
 enum ListContacts
 {
     // MARK: Use cases
-    
     enum FetchContacts
     {
         struct Request
@@ -17,11 +16,11 @@ enum ListContacts
         }
         struct Response
         {
-            var contacts: [RealmContact]
+            var contacts: [Contact]
         }
         struct ViewModel
         {
-            struct DisplayedContact: Hashable
+            struct DisplayedContact
             {
                 var id: Int
                 var name: String
@@ -31,9 +30,22 @@ enum ListContacts
                 var phoneNumber: String
                 var avatarUrl: String
                 var description: String?
-                var hashValue: Int = 0
             }
             var displayedContacts: [DisplayedContact]
         }
     }
+    
+    enum createChatRoom
+    {
+        struct Request
+        {
+            var selectedContact: Contact
+        }
+        struct Response
+        {
+            var chatRoom: ChatRoom
+        }
+    }
 }
+
+

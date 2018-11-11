@@ -10,30 +10,34 @@
 
 protocol ConversationRoomBusinessLogic
 {
-    func fetchMessages(request: ConversationRoom.FetchMessages.Request)
+    func fetchMessages()
     func sendMessage(request: ConversationRoom.SendMessage.Request)
+    var chatRoomTitle: String { get }
 }
 
 protocol ConversationRoomDataStore
 {
-    var messages: [RealmChatRoomConversation] { get set }
-    var title: String? { get set }
+    var messages: [Message] { get set }
+    var chatRoom: ChatRoom! { get set }
 }
 
 class ConversationRoomInteractor: ConversationRoomBusinessLogic, ConversationRoomDataStore
 {
-    var title: String?
     var presenter: ConversationRoomPresentationLogic?
     var worker: ConversationRoomWorker?
-    var messages: [RealmChatRoomConversation] = []
+    var messages: [Message] = []
+    var chatRoom: ChatRoom!
+    
+    var chatRoomTitle: String {
+        return chatRoom.name
+    }
     
     // MARK:
     
-    func fetchMessages(request: ConversationRoom.FetchMessages.Request)
+    func fetchMessages()
     {
         worker = ConversationRoomWorker()
-        
-        worker?.fetchMessages{ (messages) in
+        worker?.fetchMessages(withChatRoom: chatRoom) { (messages) in
             self.messages = messages
             let response = ConversationRoom.FetchMessages.Response(messages: messages)
             self.presenter?.presentMessages(response: response)
@@ -46,7 +50,7 @@ class ConversationRoomInteractor: ConversationRoomBusinessLogic, ConversationRoo
         
         worker = ConversationRoomWorker()
         
-        worker?.sendMessage(message: message) { (response)  in
+        worker?.sendMessage(withChatRoom: chatRoom!, message: message) { (response)  in
             let message = response.message
             self.messages.append(message)
             let response = ConversationRoom.SendMessage.Response(message: message)

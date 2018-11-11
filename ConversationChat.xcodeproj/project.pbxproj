@@ -15,6 +15,10 @@
 		E54B229C219535A60057FB5C /* CreateGroupWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B2296219535A50057FB5C /* CreateGroupWorker.swift */; };
 		E54B22A0219535C00057FB5C /* GroupContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B229E219535C00057FB5C /* GroupContactsCell.swift */; };
 		E54B22A1219535C00057FB5C /* GroupContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54B229F219535C00057FB5C /* GroupContactsCell.xib */; };
+		E5A823982197B0C900EC6A39 /* UserDefaultsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A823972197B0C900EC6A39 /* UserDefaultsConstant.swift */; };
+		E5A8239B219883FB00EC6A39 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A8239A219883FA00EC6A39 /* ChatRoom.swift */; };
+		E5A8239D2198844300EC6A39 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A8239C2198844300EC6A39 /* Contact.swift */; };
+		E5A8239F2198848B00EC6A39 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A8239E2198848B00EC6A39 /* Message.swift */; };
 		E5E4AEBC2173EDD6003A8E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AEBB2173EDD6003A8E1D /* AppDelegate.swift */; };
 		E5E4AEBE2173EDD6003A8E1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AEBD2173EDD6003A8E1D /* ViewController.swift */; };
 		E5E4AEC12173EDD6003A8E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E4AEBF2173EDD6003A8E1D /* Main.storyboard */; };
@@ -31,8 +35,7 @@
 		E5E4AF0A2173FA0C003A8E1D /* ChatWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF092173FA0C003A8E1D /* ChatWorker.swift */; };
 		E5E4AF0E2173FB93003A8E1D /* RealmChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF0D2173FB93003A8E1D /* RealmChatRoom.swift */; };
 		E5E4AF102173FD2E003A8E1D /* RealmContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF0F2173FD2E003A8E1D /* RealmContact.swift */; };
-		E5E4AF122173FDAA003A8E1D /* RealmContactsInChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF112173FDAA003A8E1D /* RealmContactsInChatRoom.swift */; };
-		E5E4AF142173FF27003A8E1D /* RealmChatRoomConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF132173FF27003A8E1D /* RealmChatRoomConversation.swift */; };
+		E5E4AF142173FF27003A8E1D /* RealmMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4AF132173FF27003A8E1D /* RealmMessage.swift */; };
 		E5E4AF1821740697003A8E1D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E4AF1621740696003A8E1D /* Realm.framework */; };
 		E5E4AF1921740697003A8E1D /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5E4AF1621740696003A8E1D /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5E4AF1A21740697003A8E1D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E4AF1721740696003A8E1D /* RealmSwift.framework */; };
@@ -109,6 +112,10 @@
 		E54B2296219535A50057FB5C /* CreateGroupWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupWorker.swift; sourceTree = "<group>"; };
 		E54B229E219535C00057FB5C /* GroupContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupContactsCell.swift; sourceTree = "<group>"; };
 		E54B229F219535C00057FB5C /* GroupContactsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupContactsCell.xib; sourceTree = "<group>"; };
+		E5A823972197B0C900EC6A39 /* UserDefaultsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstant.swift; sourceTree = "<group>"; };
+		E5A8239A219883FA00EC6A39 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		E5A8239C2198844300EC6A39 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		E5A8239E2198848B00EC6A39 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E5E4AEB82173EDD6003A8E1D /* ConversationChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConversationChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E4AEBB2173EDD6003A8E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E4AEBD2173EDD6003A8E1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,8 +138,7 @@
 		E5E4AF092173FA0C003A8E1D /* ChatWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWorker.swift; sourceTree = "<group>"; };
 		E5E4AF0D2173FB93003A8E1D /* RealmChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChatRoom.swift; sourceTree = "<group>"; };
 		E5E4AF0F2173FD2E003A8E1D /* RealmContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmContact.swift; sourceTree = "<group>"; };
-		E5E4AF112173FDAA003A8E1D /* RealmContactsInChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmContactsInChatRoom.swift; sourceTree = "<group>"; };
-		E5E4AF132173FF27003A8E1D /* RealmChatRoomConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChatRoomConversation.swift; sourceTree = "<group>"; };
+		E5E4AF132173FF27003A8E1D /* RealmMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMessage.swift; sourceTree = "<group>"; };
 		E5E4AF1621740696003A8E1D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		E5E4AF1721740696003A8E1D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		E5E4AF1E217BB5A0003A8E1D /* ListContactsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsPresenter.swift; sourceTree = "<group>"; };
@@ -255,6 +261,7 @@
 				E5E4AEFD2173F186003A8E1D /* Scenes */,
 				E5E4AEBB2173EDD6003A8E1D /* AppDelegate.swift */,
 				E5E4AEBD2173EDD6003A8E1D /* ViewController.swift */,
+				E5A823972197B0C900EC6A39 /* UserDefaultsConstant.swift */,
 				E5E4AEBF2173EDD6003A8E1D /* Main.storyboard */,
 				E5E4AEC22173EDDA003A8E1D /* Assets.xcassets */,
 				E5E4AEC42173EDDA003A8E1D /* LaunchScreen.storyboard */,
@@ -327,6 +334,9 @@
 			isa = PBXGroup;
 			children = (
 				E5E4AF0C2173FB6E003A8E1D /* Realm */,
+				E5A8239A219883FA00EC6A39 /* ChatRoom.swift */,
+				E5A8239C2198844300EC6A39 /* Contact.swift */,
+				E5A8239E2198848B00EC6A39 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,8 +346,7 @@
 			children = (
 				E5E4AF0D2173FB93003A8E1D /* RealmChatRoom.swift */,
 				E5E4AF0F2173FD2E003A8E1D /* RealmContact.swift */,
-				E5E4AF112173FDAA003A8E1D /* RealmContactsInChatRoom.swift */,
-				E5E4AF132173FF27003A8E1D /* RealmChatRoomConversation.swift */,
+				E5E4AF132173FF27003A8E1D /* RealmMessage.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -605,11 +614,11 @@
 				FE507AF7217F7F6800FE8920 /* ConversationRoomWorker.swift in Sources */,
 				E5E4AF032173F2DA003A8E1D /* ListChatRoomsPresenter.swift in Sources */,
 				E5E4AF072173F464003A8E1D /* ChatRoomsWorker.swift in Sources */,
-				E5E4AF122173FDAA003A8E1D /* RealmContactsInChatRoom.swift in Sources */,
 				E5E4AF0A2173FA0C003A8E1D /* ChatWorker.swift in Sources */,
 				E54B229B219535A60057FB5C /* CreateGroupPresenter.swift in Sources */,
 				FE507AF3217F7F6800FE8920 /* ConversationRoomRouter.swift in Sources */,
 				FE966482217E1C92005B505D /* Avatar.swift in Sources */,
+				E5A8239D2198844300EC6A39 /* Contact.swift in Sources */,
 				E5E4AF27217BB5A0003A8E1D /* ListContactsModels.swift in Sources */,
 				E54B229C219535A60057FB5C /* CreateGroupWorker.swift in Sources */,
 				E5E4AEBE2173EDD6003A8E1D /* ViewController.swift in Sources */,
@@ -625,17 +634,20 @@
 				FE3AAAC72180BE3F000B6A8E /* UITextView+EstimatedSize.swift in Sources */,
 				E54B229A219535A60057FB5C /* CreateGroupRouter.swift in Sources */,
 				FE507AFB217F8AF500FE8920 /* ChatMessageCell.swift in Sources */,
+				E5A8239F2198848B00EC6A39 /* Message.swift in Sources */,
 				FE3AAAEE21822828000B6A8E /* UIScrollView+ToBottom.swift in Sources */,
 				FE3AAAC22180B0DF000B6A8E /* TextInputView.swift in Sources */,
 				E5E4AF25217BB5A0003A8E1D /* ListContactsWorker.swift in Sources */,
+				E5A823982197B0C900EC6A39 /* UserDefaultsConstant.swift in Sources */,
 				E5E4AF102173FD2E003A8E1D /* RealmContact.swift in Sources */,
 				E5E4AF24217BB5A0003A8E1D /* ListContactsPresenter.swift in Sources */,
 				FE507AF2217F7F6800FE8920 /* ConversationRoomPresenter.swift in Sources */,
 				FE966486217E1DF6005B505D /* ListChatRoomsCell.swift in Sources */,
 				E5E4AF052173F2E5003A8E1D /* ListChatRoomsRouter.swift in Sources */,
-				E5E4AF142173FF27003A8E1D /* RealmChatRoomConversation.swift in Sources */,
+				E5E4AF142173FF27003A8E1D /* RealmMessage.swift in Sources */,
 				FE507AF6217F7F6800FE8920 /* ConversationRoomInteractor.swift in Sources */,
 				E54B22A0219535C00057FB5C /* GroupContactsCell.swift in Sources */,
+				E5A8239B219883FB00EC6A39 /* ChatRoom.swift in Sources */,
 				E5E4AF26217BB5A0003A8E1D /* ListContactsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

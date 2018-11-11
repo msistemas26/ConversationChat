@@ -1,5 +1,5 @@
 //
-//  RealmChatRoomConversation.swift
+//  RealmMessage.swift
 //  ConversationChat
 //
 //  Created by Raul Mantilla on 14/10/18.
@@ -9,15 +9,15 @@
 import Foundation
 import RealmSwift
 
-class RealmChatRoomConversation: Object
+class RealmMessage: Object
 {
     @objc dynamic var id: Int = 0
-    @objc dynamic var chat_room_id: Int = 0
-    @objc dynamic var from_id: Int = 0
-    @objc dynamic var to_id: Int = 0
+    @objc dynamic var from: RealmContact!
     @objc dynamic var timestamp: Date = Date()
     @objc dynamic var message: String = ""
     @objc dynamic var isReaded: Bool = false
+    
+    let chatRoom = LinkingObjects(fromType: RealmChatRoom.self, property: "messages")
     
     override class func primaryKey() -> String? {
         return "id"

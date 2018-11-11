@@ -75,27 +75,28 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.navigationItem.title = router?.dataStore?.title
         addKeyboardObservers()
         textInputView.delegate = self
+        setNavigationTitle() 
         setupCollectionView()
         fetchMessages()
     }
     
+    // MARK: Methods
+    
+    func setNavigationTitle()  {
+        self.navigationItem.title = interactor?.chatRoomTitle
+    }
+    
     func fetchMessages()
     {
-        let request = ConversationRoom.FetchMessages.Request()
-        interactor?.fetchMessages(request: request)
+        interactor?.fetchMessages()
     }
     
     func displayMessages(viewModel: ConversationRoom.FetchMessages.ViewModel)
     {
         displayedMessages = viewModel.displayedMessages
         collectionView.reloadData()
-        collectionView.performBatchUpdates(nil, completion: {
-            (result) in
-            self.collectionView.scrollToBottom(animated: false)
-        })
     }
     
     func displayMessage(viewModel: ConversationRoom.SendMessage.ViewModel)
@@ -103,11 +104,7 @@ class ConversationRoomViewController: UIViewController, ConversationRoomDisplayL
         displayedMessages.append(viewModel.displayedMessage)
         let indexPath = IndexPath(item: displayedMessages.count - 1, section: 0)
         collectionView.insertItems(at: [indexPath])
-        collectionView.performBatchUpdates(nil, completion: {
-            (result) in
-            self.collectionView.layoutIfNeeded()
-            self.collectionView.scrollToBottom(animated: true)
-        })
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
 }
 
@@ -125,7 +122,7 @@ extension ConversationRoomViewController: TextInputViewProtocol {
     }
     
     func textInputViewDidPressSendButton(withText text: String){
-        let message = ConversationRoom.SendMessage.Request.Message(chat_room_id: 0, from_id: 0, to_id: 0, message: text)
+        let message = ConversationRoom.SendMessage.Request.Message(chat_room: 0, from: 0, to: 0, message: text)
         let request  = ConversationRoom.SendMessage.Request(message: message)
         interactor?.sendMessage(request: request)
     }

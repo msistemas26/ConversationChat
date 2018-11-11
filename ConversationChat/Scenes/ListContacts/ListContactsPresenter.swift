@@ -15,6 +15,7 @@ import UIKit
 protocol ListContactsPresentationLogic
 {
   func presentContacts(response: ListContacts.FetchContacts.Response)
+  func presentCreatedChatRoom(response: ListContacts.createChatRoom.Response)
 }
 
 class ListContactsPresenter: ListContactsPresentationLogic
@@ -28,11 +29,30 @@ class ListContactsPresenter: ListContactsPresentationLogic
     var contacts: [ListContacts.FetchContacts.ViewModel.DisplayedContact] = []
     for contact in response.contacts
     {
-        let displayedContacts = ListContacts.FetchContacts.ViewModel.DisplayedContact(id: contact.id, name: contact.name, lastname: contact.lastname, fullname: contact.fullname, initials: contact.initials, phoneNumber: contact.phoneNumber, avatarUrl: contact.avatarUrl, description: nil, hashValue: 0)
+        let displayedContacts = ListContacts.FetchContacts.ViewModel.DisplayedContact(id: contact.id, name: contact.name, lastname: contact.lastname, fullname: contact.fullname, initials: contact.initials, phoneNumber: contact.phoneNumber, avatarUrl: contact.avatarUrl, description: nil)
         
         contacts.append(displayedContacts)
     }
     let viewModel = ListContacts.FetchContacts.ViewModel(displayedContacts: contacts)
     viewController?.displayContacts(viewModel: viewModel)
   }
+    
+    func presentCreatedChatRoom(response: ListContacts.createChatRoom.Response){
+        viewController?.createdChatRoom()
+    }
+    /*
+    func presentChatRoom(response: ListContacts.createChatRoom.Response)
+    {
+        var chatRom: [DisplayedContact] = []
+        for contact in response.contacts
+        {
+            let displayedContacts = DisplayedContact(id: contact.id, name: contact.name, lastname: contact.lastname, fullname: contact.fullname, initials: contact.initials, phoneNumber: contact.phoneNumber, avatarUrl: contact.avatarUrl, description: nil, hashValue: 0)
+            
+            contacts.append(displayedContacts)
+        }
+        let viewModel = ListContacts.FetchContacts.ViewModel(displayedContacts: contacts)
+        viewController?.displayContacts(viewModel: viewModel)
+    }
+    self.presenter?.presentChatRoom(response: response)
+ */
 }

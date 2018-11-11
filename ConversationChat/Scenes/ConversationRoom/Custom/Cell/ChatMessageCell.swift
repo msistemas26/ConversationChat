@@ -53,10 +53,10 @@ class ChatMessageCell: UICollectionViewCell {
     }
     
     func setup(withDisplayedMessage: ConversationRoom.DisplayedMessage){
-        messageTextView.text = withDisplayedMessage.message
         addSubview(textBubbleView)
         addSubview(messageTextView)
         addSubview(profileImageView)
+        messageTextView.text = withDisplayedMessage.message
         let avatar = Avatar.fromXib()
         if let avatar = avatar {
             profileImageView.addSubview(avatar)

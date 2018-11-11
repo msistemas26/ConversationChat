@@ -79,8 +79,7 @@ class CreateGroupViewController: UIViewController, CreateGroupDisplayLogic
     
     func fetchContacts()
     {
-        let request = CreateGroup.FetchContacts.Request()
-        interactor?.fetchContacts(request: request)
+        interactor?.fetchContacts()
     }
     
     func displayContacts(viewModel: CreateGroup.FetchContacts.ViewModel)

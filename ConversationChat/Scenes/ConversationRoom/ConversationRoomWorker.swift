@@ -11,34 +11,36 @@ import RealmSwift
 
 class ConversationRoomWorker
 {
-    func fetchMessages(completionHandler completion: @escaping ([RealmChatRoomConversation]) -> Void)
+    func fetchMessages(withChatRoom chatRoom: ChatRoom, completionHandler completion: @escaping ([Message]) -> Void)
     {
-        let realm = try! Realm()
-        var messsages: [RealmChatRoomConversation] = []
+        var messsages: [Message] = []
         
-        let realmMessages = realm.objects(RealmChatRoomConversation.self)
-        for realmMessage in realmMessages {
-            messsages.append(realmMessage)
+        let realm = try! Realm()
+        if let realmChatRoom = realm.object(ofType: RealmChatRoom.self, forPrimaryKey: chatRoom.id) {
+            let realmMessages = realmChatRoom.messages
+            for realmMessage in realmMessages {
+                messsages.append(Message(withRealmMessage:realmMessage))
+            }
+            completion(messsages)
         }
-        completion(messsages)
     }
     
-    func sendMessage(message: ConversationRoom.SendMessage.Request.Message, completionHandler completion: @escaping ((message: RealmChatRoomConversation, status: Bool)) -> Void)
+    func sendMessage(withChatRoom chatRoom: ChatRoom, message: ConversationRoom.SendMessage.Request.Message, completionHandler completion: @escaping ((message: Message, status: Bool)) -> Void)
     {
-        let message = message
         let realm = try! Realm()
-        let realmMessage = RealmChatRoomConversation()
-        realmMessage.id = UUID().hashValue
-        realmMessage.chat_room_id = message.chat_room_id
-        realmMessage.from_id = message.from_id
-        realmMessage.to_id = message.to_id
-        realmMessage.timestamp = Date()
-        realmMessage.message = message.message
-        realmMessage.isReaded = false
-        
-        try! realm.write {
-            realm.add(realmMessage, update: true)
-            completion((message: realmMessage, status:true))
+        if let realmChatRoom = realm.object(ofType: RealmChatRoom.self, forPrimaryKey: chatRoom.id),
+            let currentUser = UserDefaultsConstant.CurrentUser.getValue() as? Contact,
+            let realmContact = realm.object(ofType: RealmContact.self, forPrimaryKey: currentUser.id) {
+            let realmMessage = RealmMessage()
+            realmMessage.id = UUID().hashValue
+            realmMessage.from = realmContact
+            realmMessage.timestamp = Date()
+            realmMessage.message = message.message
+            realmMessage.isReaded = false
+            try! realm.write {
+                realmChatRoom.messages.append(realmMessage)
+            }
+            completion((message: Message(withRealmMessage: realmMessage), status:true))
         }
     }
 }

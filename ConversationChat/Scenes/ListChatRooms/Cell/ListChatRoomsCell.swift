@@ -16,14 +16,39 @@ class ListChatRoomsCell: UITableViewCell {
     @IBOutlet weak var timestamp: UILabel!
     @IBOutlet weak var readStatus: UIImageView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var displayedChatRoom: ListChatRooms.FetchChatRooms.ViewModel.DisplayedChatRoom!
+    
+    func setup(withDisplayedChatRoom displayedChatRoom: ListChatRooms.FetchChatRooms.ViewModel.DisplayedChatRoom) {
+        self.displayedChatRoom = displayedChatRoom
+        showData()
+        setThemes()
     }
-
+    
+    private func showData() {
+        title.text = displayedChatRoom.name
+        desc.text = displayedChatRoom.room_description
+        setAvatar()
+    }
+    
+    private func setAvatar() {
+        let avatar = Avatar.fromXib()
+        if let avatar = avatar {
+            self.avatar.addSubview(avatar)
+            //avatar.setInitials(displayedContact.initials)
+            //avatar.setImage(UIImage(named: "avatar")!)
+            avatar.setImage(withUrl: displayedChatRoom.logoUrl)
+        }
+    }
+    
+    
+    private func setThemes() {
+        title.textColor = UIColor.black
+        desc.textColor = UIColor.lightGray
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

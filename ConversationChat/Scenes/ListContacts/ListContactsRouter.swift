@@ -49,8 +49,8 @@ class ListContactsRouter: NSObject, ListContactsRoutingLogic, ListContactsDataPa
     
     func passDataToConversation(source: ListContactsDataStore, destination: inout ConversationRoomDataStore)
     {
-        if let controllerTitle = source.selectedContact?.name {
-            destination.title = controllerTitle
+        if let chatRoom = source.createdChatRoom {
+            destination.chatRoom = chatRoom
         }
     }
 }

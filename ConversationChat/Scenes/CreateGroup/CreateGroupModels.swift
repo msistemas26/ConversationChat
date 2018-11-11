@@ -17,7 +17,7 @@ enum CreateGroup
         }
         struct Response
         {
-            var contacts: [RealmContact]
+            var contacts: [Contact]
         }
         struct ViewModel
         {

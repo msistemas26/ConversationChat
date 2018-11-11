@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RealmChatRooms: Object
+class RealmChatRoom: Object
 {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
@@ -18,7 +18,10 @@ class RealmChatRooms: Object
     @objc dynamic var unreadMesagesCount: Int = 0
     @objc dynamic var logoUrl: String = ""
     @objc dynamic var isPrivate: Bool = false
-    @objc dynamic var password: Bool = false
+    @objc dynamic var password: String = ""
+    
+    var contacts = List<RealmContact>()
+    var messages = List<RealmMessage>()
     
     override class func primaryKey() -> String? {
         return "id"

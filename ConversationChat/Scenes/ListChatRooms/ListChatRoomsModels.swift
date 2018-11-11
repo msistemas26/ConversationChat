@@ -18,18 +18,20 @@ enum ListChatRooms
         }
         struct Response
         {
-            var chatRooms: [RealmChatRooms]
+            var chatRooms: [ChatRoom]
         }
         struct ViewModel
         {
             struct DisplayedChatRoom
             {
-                var id: Int
-                var name: String
-                var description: String
-                var timestamp: Date
-                var unreadMesagesCount: Int
-                var logoUrl: String
+                var id: Int = 0
+                var name: String = ""
+                var room_description: String = ""
+                var timestamp:Date = Date()
+                var unreadMesagesCount: Int = 0
+                var logoUrl: String = ""
+                var isPrivate: Bool = false
+                var password: String = ""
             }
             var displayedChatRooms: [DisplayedChatRoom]
         }

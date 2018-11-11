@@ -29,7 +29,7 @@ class ConversationRoomPresenter: ConversationRoomPresentationLogic
         {
             let timestamp = formatter.string(from: message.timestamp)
             
-            let displayedMessage = ConversationRoom.DisplayedMessage(id: message.id, chat_room_id: message.chat_room_id, from_id: message.from_id, to_id: message.to_id, timestamp: timestamp, message: message.message, isReaded: message.isReaded)
+            let displayedMessage = ConversationRoom.DisplayedMessage(id: message.id, from: message.from, timestamp: timestamp, message: message.message, isReaded: message.isReaded)
             
             messages.append(displayedMessage)
         }
@@ -46,7 +46,7 @@ class ConversationRoomPresenter: ConversationRoomPresentationLogic
         
         let timestamp = formatter.string(from: message.timestamp)
         
-        let displayedMessage = ConversationRoom.DisplayedMessage(id: message.id, chat_room_id: message.chat_room_id, from_id: message.from_id, to_id: message.to_id, timestamp: timestamp, message: message.message, isReaded: message.isReaded)
+        let displayedMessage = ConversationRoom.DisplayedMessage(id: message.id, from: message.from, timestamp: timestamp, message: message.message, isReaded: message.isReaded)
         
         let viewModel = ConversationRoom.SendMessage.ViewModel(displayedMessage: displayedMessage)
         

@@ -15,14 +15,14 @@ import RealmSwift
 
 class CreateGroupWorker
 {
-    func fetchContacts(completionHandler completion: @escaping ([RealmContact]) -> Void)
+    func fetchContacts(completionHandler completion: @escaping ([Contact]) -> Void)
     {
         let realm = try! Realm()
-        var contacts: [RealmContact] = []
+        var contacts: [Contact] = []
         
         let realmContacts = realm.objects(RealmContact.self)
         for realmContact in realmContacts {
-            contacts.append(realmContact)
+            contacts.append(Contact(withRealmContact: realmContact))
         }
         completion(contacts)
     }

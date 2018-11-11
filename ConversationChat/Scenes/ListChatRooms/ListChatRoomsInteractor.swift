@@ -14,23 +14,26 @@ import UIKit
 
 protocol ListChatRoomsBusinessLogic
 {
-    func fetchChatRooms(request: ListChatRooms.FetchChatRooms.Request)
+    func fetchChatRooms()
+    func selectChatRoom(withIndex index: Int)
 }
 
 protocol ListChatRoomsDataStore
 {
-    var chatRooms: [RealmChatRooms] { get set }
+    var chatRooms: [ChatRoom] { get set }
+    var selectedChatRoom: ChatRoom? { get set }
 }
 
 class ListChatRoomsInteractor: ListChatRoomsBusinessLogic, ListChatRoomsDataStore
 {
     var presenter: ListChatRoomsPresentationLogic?
     var worker: ListChatRoomsWorker?
-    var chatRooms: [RealmChatRooms] = []
+    var chatRooms: [ChatRoom] = []
+    var selectedChatRoom: ChatRoom?
     
     // MARK: Fetch Chat Rooms
     
-    func fetchChatRooms(request: ListChatRooms.FetchChatRooms.Request)
+    func fetchChatRooms()
     {
         worker = ListChatRoomsWorker()
         
@@ -39,5 +42,10 @@ class ListChatRoomsInteractor: ListChatRoomsBusinessLogic, ListChatRoomsDataStor
             let response = ListChatRooms.FetchChatRooms.Response(chatRooms: chatRooms)
             self.presenter?.presentChatRooms(response: response)
         }
+    }
+    
+    func selectChatRoom(withIndex index: Int)
+    {
+      self.selectedChatRoom = chatRooms[index]
     }
 }

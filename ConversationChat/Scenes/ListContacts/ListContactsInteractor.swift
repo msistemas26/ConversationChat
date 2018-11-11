@@ -14,32 +14,48 @@ import UIKit
 
 protocol ListContactsBusinessLogic
 {
-  func fetchContacts(request: ListContacts.FetchContacts.Request)
+    func fetchContacts()
+    func createChatRoom(withContactIndex index: Int)
 }
 
 protocol ListContactsDataStore
 {
-  var contacts: [RealmContact] { get set }
-  var selectedContact: ListContacts.FetchContacts.ViewModel.DisplayedContact? { get set }
+    var contacts: [Contact] { get set }
+    var selectedContact: Contact? { get set }
+    var createdChatRoom: ChatRoom? { get set }
 }
 
 class ListContactsInteractor: ListContactsBusinessLogic, ListContactsDataStore
 {
-  var presenter: ListContactsPresentationLogic?
-  var worker: ListContactsWorker?
-  var contacts: [RealmContact] = []
-  var selectedContact: ListContacts.FetchContacts.ViewModel.DisplayedContact?
-  
-  // MARK: Do something
-  
-  func fetchContacts(request: ListContacts.FetchContacts.Request)
-  {
-    worker = ListContactsWorker()
+    var presenter: ListContactsPresentationLogic?
+    var worker: ListContactsWorker?
     
-    worker?.fetchContacts{ (contacts) in
-        self.contacts = contacts
-        let response = ListContacts.FetchContacts.Response(contacts: contacts)
-        self.presenter?.presentContacts(response: response)
+    var contacts: [Contact] = []
+    var selectedContact: Contact?
+    var createdChatRoom: ChatRoom?
+    
+    // MARK: Do something
+    
+    func fetchContacts()
+    {
+        worker = ListContactsWorker()
+        
+        worker?.fetchContacts{ (contacts) in
+            self.contacts = contacts
+            let response = ListContacts.FetchContacts.Response(contacts: contacts)
+            self.presenter?.presentContacts(response: response)
+        }
     }
-  }
+    
+    func createChatRoom(withContactIndex index: Int)
+    {
+        worker = ListContactsWorker()
+        
+        let selectedContact = self.contacts[index]
+        worker?.createChatRoom(withContacts: [selectedContact]){ (chatRoom) in
+            self.createdChatRoom = chatRoom
+            let response = ListContacts.createChatRoom.Response(chatRoom: chatRoom)
+            self.presenter?.presentCreatedChatRoom(response: response)
+        }
+    }
 }

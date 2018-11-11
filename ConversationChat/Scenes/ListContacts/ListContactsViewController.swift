@@ -15,6 +15,7 @@ import UIKit
 protocol ListContactsDisplayLogic: class
 {
     func displayContacts(viewModel: ListContacts.FetchContacts.ViewModel)
+    func createdChatRoom()
 }
 
 class ListContactsViewController: UIViewController, ListContactsDisplayLogic
@@ -76,15 +77,20 @@ class ListContactsViewController: UIViewController, ListContactsDisplayLogic
         fetchContacts()
     }
     
+    // MARK: Methods
+    
     func fetchContacts()
     {
-        let request = ListContacts.FetchContacts.Request()
-        interactor?.fetchContacts(request: request)
+        interactor?.fetchContacts()
     }
     
     func displayContacts(viewModel: ListContacts.FetchContacts.ViewModel)
     {
         displayedContacts = viewModel.displayedContacts
+    }
+    
+    func createdChatRoom(){
+        router?.routeToConversation()
     }
 }
 
@@ -118,7 +124,6 @@ extension ListContactsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        router?.dataStore?.selectedContact = displayedContacts[indexPath.row]
-        router?.routeToConversation()
+        interactor?.createChatRoom(withContactIndex: indexPath.row)
     }
 }
