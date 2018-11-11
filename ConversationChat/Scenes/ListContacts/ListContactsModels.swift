@@ -35,7 +35,7 @@ enum ListContacts
         }
     }
     
-    enum createChatRoom
+    enum CreateChatRoom
     {
         struct Request
         {

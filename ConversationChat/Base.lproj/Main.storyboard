@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jrD-80-EBH">
-                                <rect key="frame" x="0.0" y="20" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TGb-6m-l0m">
                                     <size key="itemSize" width="50" height="50"/>
@@ -103,6 +103,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Pa-hd-9Zy"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0aT-bZ-F4T"/>
                     <connections>
                         <outlet property="collectionView" destination="jrD-80-EBH" id="T8C-Vh-2jn"/>
                         <outlet property="inputTextViewHeightConstraint" destination="06d-p2-Ucl" id="BAl-Kt-eib"/>
@@ -111,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KiT-n4-8tV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="737"/>
+            <point key="canvasLocation" x="1673" y="736"/>
         </scene>
         <!--Title-->
         <scene sceneID="ZKb-Fc-TCq">
@@ -198,14 +199,39 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Kz-rH-CBJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="oht-cZ-eT7"/>
+                    <navigationItem key="navigationItem" title="Title" id="oht-cZ-eT7">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="df8-5T-Fom">
+                            <connections>
+                                <action selector="createChatRoom:" destination="lvc-SV-vsV" id="Cbh-Tt-4lE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="nextButton" destination="df8-5T-Fom" id="0BP-uQ-ecp"/>
                         <outlet property="tableView" destination="GhW-GZ-Zh2" id="8Ak-g6-VCM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="De4-R8-PMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2484" y="33"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nNr-T3-FyE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pjK-UC-T1R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4v2-iN-uZa">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PkC-tA-kvp" kind="relationship" relationship="rootViewController" id="AoT-s6-EpB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VdB-24-4Qv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="736.28185907046486"/>
         </scene>
     </scenes>
 </document>

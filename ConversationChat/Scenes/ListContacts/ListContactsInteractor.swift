@@ -54,7 +54,7 @@ class ListContactsInteractor: ListContactsBusinessLogic, ListContactsDataStore
         let selectedContact = self.contacts[index]
         worker?.createChatRoom(withContacts: [selectedContact]){ (chatRoom) in
             self.createdChatRoom = chatRoom
-            let response = ListContacts.createChatRoom.Response(chatRoom: chatRoom)
+            let response = ListContacts.CreateChatRoom.Response(chatRoom: chatRoom)
             self.presenter?.presentCreatedChatRoom(response: response)
         }
     }

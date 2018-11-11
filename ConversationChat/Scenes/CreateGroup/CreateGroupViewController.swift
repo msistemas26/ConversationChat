@@ -15,6 +15,7 @@ import UIKit
 protocol CreateGroupDisplayLogic: class
 {
     func displayContacts(viewModel: CreateGroup.FetchContacts.ViewModel)
+    func createdChatRoom()
 }
 
 class CreateGroupViewController: UIViewController, CreateGroupDisplayLogic
@@ -22,9 +23,9 @@ class CreateGroupViewController: UIViewController, CreateGroupDisplayLogic
     var interactor: CreateGroupBusinessLogic?
     var router: (NSObjectProtocol & CreateGroupRoutingLogic & CreateGroupDataPassing)?
     var displayedContacts: [CreateGroup.FetchContacts.ViewModel.DisplayedContact] = []
-    var selectedContacts: Set<CreateGroup.FetchContacts.ViewModel.DisplayedContact> = []
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     
     // MARK: Object lifecycle
     
@@ -75,6 +76,7 @@ class CreateGroupViewController: UIViewController, CreateGroupDisplayLogic
         super.viewDidLoad()
         setUpTableView()
         fetchContacts()
+        setNextButtonStatus()
     }
     
     func fetchContacts()
@@ -85,6 +87,20 @@ class CreateGroupViewController: UIViewController, CreateGroupDisplayLogic
     func displayContacts(viewModel: CreateGroup.FetchContacts.ViewModel)
     {
         displayedContacts = viewModel.displayedContacts
+    }
+    
+    func setNextButtonStatus(){
+        if let interactor = interactor {
+            nextButton.isEnabled = interactor.selectedContactsCount > 0
+        }
+    }
+    
+    @IBAction func createChatRoom(_ sender: UIBarButtonItem) {
+        interactor?.createChatRoom()
+    }
+    
+    func createdChatRoom(){
+        router?.routeToConversation()
     }
 }
 
@@ -112,21 +128,16 @@ extension CreateGroupViewController: UITableViewDelegate, UITableViewDataSource
     {
         let displayedContact = displayedContacts[indexPath.row]
         
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: GroupContactsCell.self), for: indexPath) as? GroupContactsCell else { return UITableViewCell() }
-            cell.setup(withDisplayedContact: displayedContact, selected: selectedContacts.contains(displayedContact))
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: GroupContactsCell.self), for: indexPath) as? GroupContactsCell, let interactor = interactor else { return UITableViewCell() }
+        cell.setup(withDisplayedContact: displayedContact, selected: interactor.isContactSelected(withContact: displayedContact))
+        return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let displayedContact = displayedContacts[indexPath.row]
-        if selectedContacts.contains(displayedContact) {
-            selectedContacts.remove(displayedContact)
-        } else {
-            selectedContacts.insert(displayedContact)
-        }
+        let selectedContact = displayedContacts[indexPath.row]
+        interactor?.manageSelectedContacts(withContact: selectedContact)
         tableView.reloadRows(at: [indexPath], with: .none)
-        
-        //router?.routeBack(withCategory: displayedContact)
+        setNextButtonStatus()
     }
 }

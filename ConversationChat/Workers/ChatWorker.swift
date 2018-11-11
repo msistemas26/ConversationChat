@@ -91,7 +91,16 @@ class ChatWorker {
             
             for contact in contacts {
                 chatRoom.contacts.append(contact.realmContact())
-                chatRoom.name += (contact.name + ", ")
+            }
+            
+            if contacts.count > 1 {
+                chatRoom.name = contacts.map({ $0.name }).joined(separator: ", ")
+            } else {
+                if let contactName = contacts.first?.fullname {
+                    chatRoom.name = contactName
+                } else {
+                    chatRoom.name = "Chat Room"
+                }
             }
             
             realm.add(chatRoom, update: true)

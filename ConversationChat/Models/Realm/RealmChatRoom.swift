@@ -13,7 +13,7 @@ class RealmChatRoom: Object
 {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
-    @objc dynamic var room_description: String = ""
+    @objc dynamic var room_description: String?
     @objc dynamic var timestamp:Date = Date()
     @objc dynamic var unreadMesagesCount: Int = 0
     @objc dynamic var logoUrl: String = ""

@@ -15,6 +15,7 @@ import UIKit
 protocol CreateGroupPresentationLogic
 {
   func presentContacts(response: CreateGroup.FetchContacts.Response)
+  func presentCreatedChatRoom(response: CreateGroup.CreateChatRoom.Response)
 }
 
 class CreateGroupPresenter: CreateGroupPresentationLogic
@@ -35,4 +36,7 @@ class CreateGroupPresenter: CreateGroupPresentationLogic
     let viewModel = CreateGroup.FetchContacts.ViewModel(displayedContacts: contacts)
     viewController?.displayContacts(viewModel: viewModel)
   }
+    func presentCreatedChatRoom(response: CreateGroup.CreateChatRoom.Response){
+        viewController?.createdChatRoom()
+    }
 }

@@ -36,4 +36,15 @@ enum CreateGroup
             var displayedContacts: [DisplayedContact]
         }
     }
+    
+    enum CreateChatRoom
+    {
+        struct Request
+        {
+        }
+        struct Response
+        {
+            var chatRoom: ChatRoom
+        }
+    }
 }

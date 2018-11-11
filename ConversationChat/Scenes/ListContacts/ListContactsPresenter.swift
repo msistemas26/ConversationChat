@@ -15,7 +15,7 @@ import UIKit
 protocol ListContactsPresentationLogic
 {
   func presentContacts(response: ListContacts.FetchContacts.Response)
-  func presentCreatedChatRoom(response: ListContacts.createChatRoom.Response)
+  func presentCreatedChatRoom(response: ListContacts.CreateChatRoom.Response)
 }
 
 class ListContactsPresenter: ListContactsPresentationLogic
@@ -37,7 +37,7 @@ class ListContactsPresenter: ListContactsPresentationLogic
     viewController?.displayContacts(viewModel: viewModel)
   }
     
-    func presentCreatedChatRoom(response: ListContacts.createChatRoom.Response){
+    func presentCreatedChatRoom(response: ListContacts.CreateChatRoom.Response){
         viewController?.createdChatRoom()
     }
     /*

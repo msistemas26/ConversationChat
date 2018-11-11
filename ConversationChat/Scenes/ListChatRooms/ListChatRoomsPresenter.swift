@@ -21,6 +21,22 @@ class ListChatRoomsPresenter: ListChatRoomsPresentationLogic
 {
   weak var viewController: ListChatRoomsDisplayLogic?
   
+   enum Constants {
+        static let dateTimeFormat = "h:mm a"
+        static let dateAM = "am"
+        static let datePM = "pm"
+        static let POSIX = "_POSIX"
+    }
+    
+  fileprivate lazy var timestampFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: Locale.current.identifier + Constants.POSIX)
+        formatter.amSymbol = Constants.dateAM
+        formatter.pmSymbol = Constants.datePM
+        formatter.dateFormat = Constants.dateTimeFormat
+        return formatter
+    }()
+  
   // MARK: Present Chat Rooms
   
   func presentChatRooms(response: ListChatRooms.FetchChatRooms.Response)
@@ -28,7 +44,8 @@ class ListChatRoomsPresenter: ListChatRoomsPresentationLogic
     var chatRooms: [ListChatRooms.FetchChatRooms.ViewModel.DisplayedChatRoom] = []
     for chatRoom in response.chatRooms
     {
-        let displayedChatRooms = ListChatRooms.FetchChatRooms.ViewModel.DisplayedChatRoom(id: chatRoom.id, name: chatRoom.name, room_description: chatRoom.room_description, timestamp: chatRoom.timestamp, unreadMesagesCount: chatRoom.unreadMesagesCount, logoUrl: chatRoom.logoUrl, isPrivate: chatRoom.isPrivate, password: chatRoom.password)
+        
+        let displayedChatRooms = ListChatRooms.FetchChatRooms.ViewModel.DisplayedChatRoom(id: chatRoom.id, name: chatRoom.name, room_description: chatRoom.room_description, timestamp: timestampFormatter.string(from: chatRoom.timestamp), unreadMesagesCount: chatRoom.unreadMesagesCount, logoUrl: chatRoom.logoUrl, isPrivate: chatRoom.isPrivate, password: chatRoom.password)
         chatRooms.append(displayedChatRooms)
     }
     let viewModel = ListChatRooms.FetchChatRooms.ViewModel(displayedChatRooms: chatRooms)

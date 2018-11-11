@@ -26,4 +26,20 @@ class CreateGroupWorker
         }
         completion(contacts)
     }
+    
+    
+    func createChatRoom(withContacts setContacts: Set<CreateGroup.FetchContacts.ViewModel.DisplayedContact>, completionHandler completion: @escaping (ChatRoom) -> Void)
+    {
+        
+        var contacts: [Contact] = []
+        for contact in setContacts {
+            let contact = Contact(id: contact.id, name: contact.name, lastname: contact.lastname, phoneNumber: contact.phoneNumber, avatarUrl: contact.avatarUrl)
+            contacts.append(contact)
+        }
+        
+        let worker = ChatWorker()
+        worker.createChatRoom(withContacts: contacts) { (chatRoom) in
+            completion(chatRoom)
+        }
+    }
 }

@@ -26,8 +26,8 @@ enum ListChatRooms
             {
                 var id: Int = 0
                 var name: String = ""
-                var room_description: String = ""
-                var timestamp:Date = Date()
+                var room_description: String? = ""
+                var timestamp: String? = ""
                 var unreadMesagesCount: Int = 0
                 var logoUrl: String = ""
                 var isPrivate: Bool = false

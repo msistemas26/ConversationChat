@@ -27,6 +27,7 @@ class ListChatRoomsCell: UITableViewCell {
     private func showData() {
         title.text = displayedChatRoom.name
         desc.text = displayedChatRoom.room_description
+        timestamp.text = displayedChatRoom.timestamp
         setAvatar()
     }
     

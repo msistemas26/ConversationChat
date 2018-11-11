@@ -12,7 +12,7 @@ struct ChatRoom
 {
     var id: Int = 0
     var name: String = ""
-    var room_description: String = ""
+    var room_description: String?
     var timestamp:Date = Date()
     var unreadMesagesCount: Int = 0
     var logoUrl: String = ""
@@ -24,12 +24,17 @@ extension ChatRoom {
     init (withRealmChatRoom chatRoom: RealmChatRoom) {
         self.id = chatRoom.id
         self.name = chatRoom.name
-        self.room_description = chatRoom.room_description
-        self.timestamp = chatRoom.timestamp
         self.unreadMesagesCount = chatRoom.unreadMesagesCount
         self.logoUrl = chatRoom.logoUrl
         self.isPrivate = chatRoom.isPrivate
         self.password = chatRoom.password
+        if let lastMessage = chatRoom.messages.last {
+            self.room_description = lastMessage.message
+            self.timestamp = lastMessage.timestamp
+        } else {
+            self.room_description = nil
+            self.timestamp = chatRoom.timestamp
+        }
     }
     
     func realmChatRoom() -> RealmChatRoom {
